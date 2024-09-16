@@ -369,7 +369,7 @@ local UserInputService = game:GetService("UserInputService")
 
 local Sound = Instance.new("Sound")
 Sound.Parent = game:GetService("Players").LocalPlayer.Character.Torso
-Sound.SoundId = getcustomasset('Ruin.MP3')
+Sound.SoundId = "rbxassetid://18749869397"
 Sound.Looped = false
 Sound.Volume = 5
 Sound:Play()
