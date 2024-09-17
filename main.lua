@@ -535,72 +535,147 @@ tool.Name = "Awakening 2"
 tool.RequiresHandle = true
 tool.Parent = game.Players.LocalPlayer.Backpack
 
--- Tool script
-local function onActivated()
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
-    local player = game.Players.LocalPlayer
-    repeat wait() until player.Character.Humanoid
-    local humanoid = player.Character.Humanoid
-    local character = player.Character or player.CharacterAdded:Wait()
-    local UserInputService = game:GetService("UserInputService")
+-- Create the Handle part
+local handle = Instance.new("Part")
+handle.Name = "Handle"
+handle.Size = Vector3.new(1, 1, 1) -- Adjust size as needed
+handle.Anchored = false
+handle.CanCollide = false
+handle.Parent = tool
 
-    -- Play sound effects
-    local soundeffect1 = Instance.new("Sound")
-    soundeffect1.SoundId = "rbxassetid://18445228136"
-    soundeffect1.Parent = game.Players.LocalPlayer.Character.Torso
-    soundeffect1:Play()
-    soundeffect1.Volume = 8
+-- Create a LocalScript for the tool
+local script = Instance.new("LocalScript")
+script.Parent = tool
 
-    local soundeffect2 = Instance.new("Sound")
-    soundeffect2.SoundId = "rbxassetid://18445228824"
-    soundeffect2.Parent = game.Players.LocalPlayer.Character.Torso
-    soundeffect2:Play()
-    soundeffect2.Volume = 8
+-- Place the provided code in the LocalScript
+script.Source = [[
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
+local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
 
-    -- Play animation
-    local anim = Instance.new("Animation")
-    anim.AnimationId = "rbxassetid://18445236460"
-    local playAnim = humanoid:LoadAnimation(anim)
-    anim.AnimationId = "rbxassetid://0"
-    playAnim:Play()
+local soundeffect1 = Instance.new("Sound")
+soundeffect1.SoundId = "rbxassetid://18445228136"
+soundeffect1.Parent = game.Players.LocalPlayer.Character.Torso
+soundeffect1:Play()
+soundeffect1.Volume = 8
 
-    -- Create and emit particles
-    local function emitParticles(effectName, parent, emitCount)
-        local effect = game.ReplicatedStorage.Resources.KJEffects[effectName]:Clone()
-        effect.Parent = player.Character[parent]
-        for _, child in ipairs(effect:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(emitCount)
-            end
-        end
-        return effect
+local soundeffect2 = Instance.new("Sound")
+soundeffect2.SoundId = "rbxassetid://18445228824"
+soundeffect2.Parent = game.Players.LocalPlayer.Character.Torso
+soundeffect2:Play()
+soundeffect2.Volume = 8
+
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://18445236460"
+
+local playAnim = humanoid:LoadAnimation(anim)
+anim.AnimationId = "rbxassetid://0"
+playAnim:Play()
+
+local fine = game.ReplicatedStorage.Resources.KJEffects["fine...1"].EnableBatch2:Clone()
+fine.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(fine:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
     end
-
-    local fine = emitParticles("fine...1", "Torso", 1)
-    local red = emitParticles("fine...1", "Right Leg", 1)
-    local red2 = emitParticles("fine...1", "Left Leg", 1)
-    local red3 = emitParticles("fine...1", "Left Leg", 1)
-    local red4 = emitParticles("fine...1", "Right Leg", 1)
-    
-    wait(1.7)
-    player.Character.Humanoid.WalkSpeed = 0
-
-    -- Clean up old effects
-    fine:Destroy()
-    red:Destroy()
-    red2:Destroy()
-    red3:Destroy()
-    red4:Destroy()
-    
-    -- Additional particle effects
-    emitParticles("fine...Emit2", "Right Arm", 1)
-    emitParticles("fine...Emit", "Left Arm", 1)
-    emitParticles("fine...Emit", "Torso", 1)
-    emitParticles("fine...Emit", "Torso", 1)
-    emitParticles("LeapParticles", "Torso", 1)
-    
-    wait(0.9)
-    player.Character.Humanoid.WalkSpeed = 16
 end
 
-tool.Activated:Connect(onActivated)
+local red = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD1:Clone()
+red.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+for _, child in ipairs(red:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local red2 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD2:Clone()
+red2.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+for _, child in ipairs(red2:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local red3 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD3:Clone()
+red3.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+for _, child in ipairs(red3:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local red4 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD4:Clone()
+red4.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+for _, child in ipairs(red4:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+wait(1.7)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+fine:Destroy()
+red:Destroy()
+red2:Destroy()
+red3:Destroy()
+red4:Destroy()
+
+wait(0.1)
+
+local fine1 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"].EmitBatch1:Clone()
+fine1.Parent = game.Players.LocalPlayer.Character["Right Arm"]
+for _, child in ipairs(fine1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local fine2 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"].EmitBatch1:Clone()
+fine2.Parent = game.Players.LocalPlayer.Character["Left Arm"]
+for _, child in ipairs(fine2:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local fine3 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"].EmitBatch2:Clone()
+fine3.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(fine3:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local sparkles1 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"].EmitBatch3:Clone()
+sparkles1.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(sparkles1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local twisty1 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"].EmitBatch1:Clone()
+twisty1.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(twisty1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local leap1 = game.ReplicatedStorage.Resources.KJEffects["LeapParticles"].Leap:Clone()
+leap1.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(leap1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+wait(0.9)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+]]
+
+-- Parent the tool to the player's Backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
