@@ -12,6 +12,21 @@ end
 -- Call the function to clear the backpack
 clearBackpack()
 
+--KJ SPAWN
+local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+ 
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://17325160621"
+ 
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
+ 
+end)
+
 -- Animation Handling Script
 local Players = game:GetService("Players")
 
