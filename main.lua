@@ -256,77 +256,65 @@ tool.Activated:Connect(onActivated)
 tool.Parent = game.Players.LocalPlayer.Backpack
 
 
--- Create the Tool
-local tool = Instance.new("Tool")
-tool.Name = "Awakening 1"
-tool.RequiresHandle = true
-tool.Parent = game.Players.LocalPlayer.Backpack
-
--- Create the Handle part
-local handle = Instance.new("Part")
-handle.Name = "Handle"
-handle.Size = Vector3.new(1, 1, 1) -- Adjust size as needed
-handle.Anchored = false
-handle.CanCollide = false
-handle.Parent = tool
-
--- Tool script
-local function onActivated()
+-- Function to execute when the Awakening 1 tool is activated
+local function onAwakeningActivated()
+    -- Clear backpack
     local player = game.Players.LocalPlayer
-
-    -- Clear the backpack
     for _, item in ipairs(player.Backpack:GetChildren()) do
         item:Destroy()
     end
 
-    -- Function to create and load a tool from a URL
-    local function createTool(name, url)
-        local tool = Instance.new("Tool")
-        tool.Name = name
-        tool.RequiresHandle = true
-        tool.Parent = player.Backpack
+    -- Add tools
+    local stoicBombTool = Instance.new("Tool")
+    stoicBombTool.Name = "Stoic Bomb"
+    stoicBombTool.RequiresHandle = true
+    stoicBombTool.Activated:Connect(function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/a6qgCWqL"))()
+    end)
+    stoicBombTool.Parent = player.Backpack
 
-        local handle = Instance.new("Part")
-        handle.Name = "Handle"
-        handle.Size = Vector3.new(1, 1, 1) -- Adjust size as needed
-        handle.Anchored = false
-        handle.CanCollide = false
-        handle.Parent = tool
+    local dropkickTool = Instance.new("Tool")
+    dropkickTool.Name = "20 20 20 Dropkick"
+    dropkickTool.RequiresHandle = true
+    dropkickTool.Activated:Connect(function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/g7Xjypk8"))()
+    end)
+    dropkickTool.Parent = player.Backpack
 
-        -- Load and execute the script from the URL
-        local script = Instance.new("Script")
-        script.Source = game:HttpGet(url)
-        script.Parent = tool
-    end
+    local fiveSeasonsTool = Instance.new("Tool")
+    fiveSeasonsTool.Name = "Five Seasons"
+    fiveSeasonsTool.RequiresHandle = true
+    fiveSeasonsTool.Activated:Connect(function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/your_five_seasons_url"))()  -- Replace with actual URL
+    end)
+    fiveSeasonsTool.Parent = player.Backpack
 
-    -- Add the moves
-    createTool("Stoic Bomb", "https://pastebin.com/raw/a6qgCWqL")
-    createTool("20-20-20 Dropkick", "https://pastebin.com/raw/g7Xjypk8")
-    createTool("Five Seasons", "https://pastebin.com/raw/your_five_seasons_url")
+    -- Play animation and sound effects
+    player.Character.Humanoid.WalkSpeed = 0
+    repeat wait() until player.Character.Humanoid
+    local humanoid = player.Character.Humanoid
+    local character = player.Character or player.CharacterAdded:Wait()
 
-    -- Play sound effects
     local soundeffect1 = Instance.new("Sound")
     soundeffect1.SoundId = "rbxassetid://17150550559"
-    soundeffect1.Parent = game.Players.LocalPlayer.Character.Torso
+    soundeffect1.Parent = player.Character.Torso
     soundeffect1:Play()
     soundeffect1.Volume = 3
 
     local soundeffect2 = Instance.new("Sound")
     soundeffect2.SoundId = "rbxassetid://17150550302"
-    soundeffect2.Parent = game.Players.LocalPlayer.Character.Torso
+    soundeffect2.Parent = player.Character.Torso
     soundeffect2:Play()
     soundeffect2.Volume = 5
 
-    -- Play animation
     local anim = Instance.new("Animation")
     anim.AnimationId = "rbxassetid://17140902079"
-    local playAnim = player.Character.Humanoid:LoadAnimation(anim)
+    local playAnim = humanoid:LoadAnimation(anim)
     anim.AnimationId = "rbxassetid://0"
     playAnim:Play()
 
-    -- Create and handle particle effects
     local fine = game.ReplicatedStorage.Resources.KJEffects["fine...1"].EnableBatch2:Clone()
-    fine.Parent = game.Players.LocalPlayer.Character["Torso"]
+    fine.Parent = player.Character["Torso"]
     for _, child in ipairs(fine:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(1)
@@ -334,7 +322,7 @@ local function onActivated()
     end
 
     local fine3 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"].EmitBatch3:Clone()
-    fine3.Parent = game.Players.LocalPlayer.Character["Torso"]
+    fine3.Parent = player.Character["Torso"]
     for _, child in ipairs(fine3:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(1)
@@ -342,7 +330,7 @@ local function onActivated()
     end
 
     local red = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD1:Clone()
-    red.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+    red.Parent = player.Character["Right Leg"]
     for _, child in ipairs(red:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(1)
@@ -350,7 +338,7 @@ local function onActivated()
     end
 
     local red2 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD2:Clone()
-    red2.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+    red2.Parent = player.Character["Left Leg"]
     for _, child in ipairs(red2:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(1)
@@ -358,7 +346,7 @@ local function onActivated()
     end
 
     local red3 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD3:Clone()
-    red3.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+    red3.Parent = player.Character["Left Leg"]
     for _, child in ipairs(red3:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(1)
@@ -366,7 +354,7 @@ local function onActivated()
     end
 
     local red4 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD4:Clone()
-    red4.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+    red4.Parent = player.Character["Right Leg"]
     for _, child in ipairs(red4:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(1)
@@ -374,11 +362,7 @@ local function onActivated()
     end
 
     wait(8.2)
-
-    -- Restore character movement
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-
-    -- Cleanup
+    player.Character.Humanoid.WalkSpeed = 16
     fine:Destroy()
     red:Destroy()
     red2:Destroy()
@@ -386,7 +370,7 @@ local function onActivated()
     red4:Destroy()
 
     local fine2 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"].EmitBatch1:Clone()
-    fine2.Parent = game.Players.LocalPlayer.Character["Right Arm"]
+    fine2.Parent = player.Character["Right Arm"]
     for _, child in ipairs(fine2:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(1)
@@ -394,4 +378,9 @@ local function onActivated()
     end
 end
 
-tool.Activated:Connect(onActivated)
+-- Create the Awakening 1 tool
+local awakeningTool = Instance.new("Tool")
+awakeningTool.Name = "Awakening 1"
+awakeningTool.RequiresHandle = true
+awakeningTool.Activated:Connect(onAwakeningActivated)
+awakeningTool.Parent = game.Players.LocalPlayer.Backpack
