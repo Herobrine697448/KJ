@@ -189,148 +189,25 @@ player.CharacterAdded:Connect(function(newCharacter)
     end
 end)
 
--- Tool Script for Ravage
-local function createRavageTool()
-    local tool = Instance.new("Tool")
-    tool.Name = "Ravage"
-    tool.RequiresHandle = true
-    tool.CanBeDropped = true
-    tool.Parent = game.Players.LocalPlayer.Backpack
-
-    local handle = Instance.new("Part")
-    handle.Name = "Handle"
-    handle.Size = Vector3.new(1, 1, 1)
-    handle.Anchored = false
-    handle.CanCollide = false
-    handle.Parent = tool
-
-    local function onActivated()
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
-        local player = game.Players.LocalPlayer
-        repeat wait() until player.Character.Humanoid
-        local humanoid = player.Character.Humanoid
-        local character = player.Character or player.CharacterAdded:Wait()
-        local UserInputService = game:GetService("UserInputService")
-
-        local anim = Instance.new("Animation")
-        anim.AnimationId = "rbxassetid://16945573694"
-
-        local playAnim = humanoid:LoadAnimation(anim)
-        anim.AnimationId = "rbxassetid://0"
-        playAnim:Play()
-
-        wait(0.7)
-
-        local anim2 = Instance.new("Animation")
-        anim2.AnimationId = "rbxassetid://16945550029"
-
-        local playAnim2 = humanoid:LoadAnimation(anim2)
-        anim2.AnimationId = "rbxassetid://0"
-        playAnim2:Play()
-
-        local soundeffect = Instance.new("Sound")
-        soundeffect.SoundId = "rbxassetid://17325540665"
-        soundeffect.Parent = game.Players.LocalPlayer.Character.Torso
-        soundeffect:Play()
-        soundeffect.Volume = 1
-
-        local hit1 = game.ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-        hit1.Parent = game.Players.LocalPlayer.Character["Right Arm"]
-        for _, child in ipairs(hit1:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(1)
-            end
-        end
-
-        wait(1.3)
-
-        local soundeffect = Instance.new("Sound")
-        soundeffect.SoundId = "rbxassetid://17325540665"
-        soundeffect.Parent = game.Players.LocalPlayer.Character.Torso
-        soundeffect:Play()
-        soundeffect.Volume = 1
-
-        local hit1 = game.ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-        hit1.Parent = game.Players.LocalPlayer.Character["Left Arm"]
-        for _, child in ipairs(hit1:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(1)
-            end
-        end
-
-        wait(0.4)
-
-        local soundeffect = Instance.new("Sound")
-        soundeffect.SoundId = "rbxassetid://17325540665"
-        soundeffect.Parent = game.Players.LocalPlayer.Character.Torso
-        soundeffect:Play()
-        soundeffect.Volume = 1
-
-        local hit1 = game.ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-        hit1.Parent = game.Players.LocalPlayer.Character["Right Arm"]
-        for _, child in ipairs(hit1:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(1)
-            end
-        end
-
-        wait(0.4)
-        local hit1 = game.ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-        hit1.Parent = game.Players.LocalPlayer.Character["Right Arm"]
-        for _, child in ipairs(hit1:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(1)
-            end
-        end
-        wait(0.1)
-        local soundeffect = Instance.new("Sound")
-        soundeffect.SoundId = "rbxassetid://17799049330"
-        soundeffect.Parent = game.Players.LocalPlayer.Character.Torso
-        soundeffect:Play()
-        soundeffect.Volume = 1
-        local hit1 = game.ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-        hit1.Parent = game.Players.LocalPlayer.Character["Right Arm"]
-        for _, child in ipairs(hit1:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(1)
-            end
-        end
-        wait(0.1)
-        local soundeffect = Instance.new("Sound")
-        soundeffect.SoundId = "rbxassetid://17799049330"
-        soundeffect.Parent = game.Players.LocalPlayer.Character.Torso
-        soundeffect:Play()
-        soundeffect.Volume = 1
-
-        local hit1 = game.ReplicStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-        hit1.Parent = game.Players.LocalPlayer.Character["Right Arm"]
-        for _, child in ipairs(hit1:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(1)
-            end
-        end
-        wait(0.1)
-        local soundeffect = Instance.new("Sound")
-        soundeffect.SoundId = "rbxassetid://17799049330"
-        soundeffect.Parent = game.Players.LocalPlayer.Character.Torso
-        soundeffect:Play()
-        soundeffect.Volume = 1
-
-        local hit1 = game.ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-        hit1.Parent = game.Players.LocalPlayer.Character["Left Arm"]
-        for _, child in ipairs(hit1:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(1)
-            end
-        end
-        wait(0.5)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-    end
-
-    tool.Activated:Connect(onActivated)
+-- Create the tool
+local tool = Instance.new("Tool")
+tool.Name = "Ravage"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://pastebin.com/raw/h50hTC2B"))()
 end
-
-createRavageTool()
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+        
 
 -- Tool Script for Swift Sweep
 local function createSwiftSweepTool()
