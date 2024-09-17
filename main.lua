@@ -5,7 +5,7 @@ StarterGui:SetCore("SendNotification", {
     Title = "NOTIFICATION",
     Text = "Character Based on KJ's Final Ride & KJ Kills Day Credits to Kilojoule & Stealth",
     Duration = 10 -- Duration in seconds
-)}
+})
 
 -- Clear Backpack Script
 local function clearBackpack()
