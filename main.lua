@@ -408,9 +408,9 @@ local function onActivated()
     
     -- Add moves
     local moves = {
-        "Stoic Bomb",   -- WIP
+        "Stoic Bomb (WIP)",   -- WIP
         "20 20 20 Dropkick", -- Added using external script
-        "Five Seasons" -- WIP
+        "Five Seasons (WIP)" -- WIP
     }
     
     for _, moveName in ipairs(moves) do
@@ -532,7 +532,7 @@ tool.Activated:Connect(onActivated)
 -- Create the Tool
 local tool = Instance.new("Tool")
 tool.Name = "Awakening 2"
-tool.RequiresHandle = false
+tool.RequiresHandle = true
 tool.Parent = game.Players.LocalPlayer.Backpack
 
 -- Tool script
