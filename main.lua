@@ -408,27 +408,31 @@ local function onActivated()
     
     -- Add moves
     local moves = {
-        "Stoic Bomb",
-        "Five Seasons"
+        "Stoic Bomb",   -- WIP
+        "20 20 20 Dropkick", -- Added using external script
+        "Five Seasons" -- WIP
     }
     
     for _, moveName in ipairs(moves) do
-        local move = Instance.new("Tool")
-        move.Name = moveName
-        move.RequiresHandle = true
-        move.Parent = player.Backpack
-        
-        -- Create the Handle part for the move
-        local handle = Instance.new("Part")
-        handle.Name = "Handle"
-        handle.Size = Vector3.new(1, 1, 1) -- Adjust size as needed
-        handle.Anchored = false
-        handle.CanCollide = false
-        handle.Parent = move
+        if moveName ~= "20 20 20 Dropkick" then
+            local move = Instance.new("Tool")
+            move.Name = moveName
+            move.RequiresHandle = true
+            move.Parent = player.Backpack
+            
+            -- Create the Handle part for the move
+            local handle = Instance.new("Part")
+            handle.Name = "Handle"
+            handle.Size = Vector3.new(1, 1, 1) -- Adjust size as needed
+            handle.Anchored = false
+            handle.CanCollide = false
+            handle.Parent = move
+        else
+            -- Add 20-20-20 Dropkick tool using external script
+            local dropkickScript = loadstring(game:HttpGet("https://pastebin.com/raw/KHF0uXdY"))
+            dropkickScript()
+        end
     end
-
-    -- Add 20-20-20 Dropkick tool using external script
-    loadstring(game:HttpGet("https://pastebin.com/raw/KHF0uXdY"))()
 
     -- Animation and Sound effects
     player.Character.Humanoid.WalkSpeed = 0
