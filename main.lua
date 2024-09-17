@@ -12,6 +12,12 @@ end
 -- Call the function to clear the backpack
 clearBackpack()
 
+local plr = game.Players.LocalPlayer
+local gui = plr.PlayerGui
+local ulttext = gui.ScreenGui.MagicHealth.TextLabel
+
+ulttext.Text = "20 SERIES"
+
 --KJ SPAWN
 local function playAnimation()
     local player = game.Players.LocalPlayer
