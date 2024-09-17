@@ -380,7 +380,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
 
 -- Create the Tool
 local tool = Instance.new("Tool")
-tool.Name = "Awk 1"
+tool.Name = "Awakening 1"
 tool.RequiresHandle = true
 tool.Parent = game.Players.LocalPlayer.Backpack
 
@@ -394,8 +394,36 @@ handle.Parent = tool
 
 -- Tool script
 local function onActivated()
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+    -- Clear backpack
     local player = game.Players.LocalPlayer
+    for _, item in ipairs(player.Backpack:GetChildren()) do
+        item:Destroy()
+    end
+    
+    -- Add moves
+    local moves = {
+        "Stoic Bomb",
+        "20 20 20 Dropkick",
+        "Five Seasons"
+    }
+    
+    for _, moveName in ipairs(moves) do
+        local move = Instance.new("Tool")
+        move.Name = moveName
+        move.RequiresHandle = true
+        move.Parent = player.Backpack
+        
+        -- Create the Handle part for the move
+        local handle = Instance.new("Part")
+        handle.Name = "Handle"
+        handle.Size = Vector3.new(1, 1, 1) -- Adjust size as needed
+        handle.Anchored = false
+        handle.CanCollide = false
+        handle.Parent = move
+    end
+
+    -- Animation and Sound effects
+    player.Character.Humanoid.WalkSpeed = 0
     repeat wait() until player.Character.Humanoid
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
@@ -470,7 +498,7 @@ local function onActivated()
 
     wait(8.2)
 
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    player.Character.Humanoid.WalkSpeed = 16
 
     fine:Destroy()
     red:Destroy()
