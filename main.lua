@@ -528,3 +528,79 @@ local function onActivated()
 end
 
 tool.Activated:Connect(onActivated)
+
+-- Create the Tool
+local tool = Instance.new("Tool")
+tool.Name = "Awakening 2"
+tool.RequiresHandle = false
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+-- Tool script
+local function onActivated()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
+    local player = game.Players.LocalPlayer
+    repeat wait() until player.Character.Humanoid
+    local humanoid = player.Character.Humanoid
+    local character = player.Character or player.CharacterAdded:Wait()
+    local UserInputService = game:GetService("UserInputService")
+
+    -- Play sound effects
+    local soundeffect1 = Instance.new("Sound")
+    soundeffect1.SoundId = "rbxassetid://18445228136"
+    soundeffect1.Parent = game.Players.LocalPlayer.Character.Torso
+    soundeffect1:Play()
+    soundeffect1.Volume = 8
+
+    local soundeffect2 = Instance.new("Sound")
+    soundeffect2.SoundId = "rbxassetid://18445228824"
+    soundeffect2.Parent = game.Players.LocalPlayer.Character.Torso
+    soundeffect2:Play()
+    soundeffect2.Volume = 8
+
+    -- Play animation
+    local anim = Instance.new("Animation")
+    anim.AnimationId = "rbxassetid://18445236460"
+    local playAnim = humanoid:LoadAnimation(anim)
+    anim.AnimationId = "rbxassetid://0"
+    playAnim:Play()
+
+    -- Create and emit particles
+    local function emitParticles(effectName, parent, emitCount)
+        local effect = game.ReplicatedStorage.Resources.KJEffects[effectName]:Clone()
+        effect.Parent = player.Character[parent]
+        for _, child in ipairs(effect:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(emitCount)
+            end
+        end
+        return effect
+    end
+
+    local fine = emitParticles("fine...1", "Torso", 1)
+    local red = emitParticles("fine...1", "Right Leg", 1)
+    local red2 = emitParticles("fine...1", "Left Leg", 1)
+    local red3 = emitParticles("fine...1", "Left Leg", 1)
+    local red4 = emitParticles("fine...1", "Right Leg", 1)
+    
+    wait(1.7)
+    player.Character.Humanoid.WalkSpeed = 0
+
+    -- Clean up old effects
+    fine:Destroy()
+    red:Destroy()
+    red2:Destroy()
+    red3:Destroy()
+    red4:Destroy()
+    
+    -- Additional particle effects
+    emitParticles("fine...Emit2", "Right Arm", 1)
+    emitParticles("fine...Emit", "Left Arm", 1)
+    emitParticles("fine...Emit", "Torso", 1)
+    emitParticles("fine...Emit", "Torso", 1)
+    emitParticles("LeapParticles", "Torso", 1)
+    
+    wait(0.9)
+    player.Character.Humanoid.WalkSpeed = 16
+end
+
+tool.Activated:Connect(onActivated)
