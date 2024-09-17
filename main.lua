@@ -12,11 +12,130 @@ end
 -- Call the function to clear the backpack
 clearBackpack()
 
+--ULTIMATE TEXT
 local plr = game.Players.LocalPlayer
 local gui = plr.PlayerGui
 local ulttext = gui.ScreenGui.MagicHealth.TextLabel
 
 ulttext.Text = "20 SERIES"
+
+--KJ WALL COMBO
+local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local Sound = Instance.new("Sound")
+Sound.Parent = game:GetService("Players").LocalPlayer.Character.Torso
+Sound.SoundId = getcustomasset('WallComboAudio.mp3')
+Sound.Looped = false
+Sound.Volume = 5
+Sound:Play()
+
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://18447913645"
+
+local playAnim = humanoid:LoadAnimation(anim)
+wait(0.5)
+anim.AnimationId = "rbxassetid://0"
+playAnim:Play()
+local slam1 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].slam.Attachment:Clone()
+slam1.Parent = game.Players.LocalPlayer.Character["Torso"]
+    for _, child in ipairs(slam1:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+local slam2 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].slam.Attachment:Clone()
+slam2.Parent = game.Players.LocalPlayer.Character["Torso"]
+    for _, child in ipairs(slam2:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+local slam3 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].slam.Attachment:Clone()
+slam3.Parent = game.Players.LocalPlayer.Character["Torso"]
+    for _, child in ipairs(slam3:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+wait(2.8)
+local feet1 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].feet.Attachment:Clone()
+feet1.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+    for _, child in ipairs(feet1:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+wait(1.2)
+local feet2 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].feet.Attachment:Clone()
+feet2.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+    for _, child in ipairs(feet2:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+wait(1.5)
+local stoic1 = game.ReplicatedStorage.Resources.StoicBomb["pre"].Part.Attachment:Clone()
+stoic1.Parent = game.Players.LocalPlayer.Character["Torso"]
+    for _, child in ipairs(stoic1:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+        end
+wait(0.1)
+local stoic2 = game.ReplicatedStorage.Resources.StoicBomb["Main"].Part.Attachment:Clone()
+stoic2.Parent = game.Players.LocalPlayer.Character["Torso"]
+    for _, child in ipairs(stoic2:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+        end
+wait(0.35)
+local final1 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].FinalImpact.Attachment:Clone()
+final1.Parent = game.Players.LocalPlayer.Character["Right Arm"]
+    for _, child in ipairs(final1:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+local final2 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].FinalImpact.Origin:Clone()
+final2.Parent = game.Players.LocalPlayer.Character["Right Arm"]
+    for _, child in ipairs(final2:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+local final3 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].FinalImpact.Attachment:Clone()
+final3.Parent = game.Players.LocalPlayer.Character["Right Arm"]
+    for _, child in ipairs(final3:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+local final4 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].FinalImpact.Attachment:Clone()
+final4.Parent = game.Players.LocalPlayer.Character["Right Arm"]
+    for _, child in ipairs(final4:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+local final5 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].FinalImpact.Attachment:Clone()
+final5.Parent = game.Players.LocalPlayer.Character["Right Arm"]
+    for _, child in ipairs(final5:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+    end
+local final6 = game.ReplicatedStorage.Resources.KJEffects["KJWallCombo"].FinalImpact.Attachment:Clone()
+final6.Parent = game.Players.LocalPlayer.Character["Right Arm"]
+    for _, child in ipairs(final6:GetChildren()) do
+        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
+            child:Emit(1) -- Emit 20 particles
+        end
+end
 
 --KJ SPAWN
 local function playAnimation()
