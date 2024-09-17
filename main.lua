@@ -1,5 +1,5 @@
 --KJ MESSAGE
-game:GetService("StarterGui"):SetCore("SendNotification",{Title="NOTIFICATION",Text="Character Based on KJ's Final Ride & KJ Kills Day Credits to Kilojoile & Stealth", Duration=10})
+game:GetService("StarterGui"):SetCore("SendNotification",{Title="NOTIFICATION",Text="Character Based on KJ's Final Ride & KJ Kills Day Credits to Kilojoule & Stealth", Duration=10})
 
 -- Clear Backpack Script
 local function clearBackpack()
