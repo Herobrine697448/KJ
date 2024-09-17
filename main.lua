@@ -286,7 +286,7 @@ local function onAwakeningActivated()
 
     -- Add Dropkick 20-20-20 tool
     local dropkickTool = Instance.new("Tool")
-    dropkickTool.Name = "dropkick 20-20-20"  -- Tool name
+    dropkickTool.Name = "20-20-20 Dropkick"  -- Tool name
     dropkickTool.RequiresHandle = false  -- No handle required
     dropkickTool.ToolTip = "awakening"
 
