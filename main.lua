@@ -13,19 +13,22 @@ end
 clearBackpack()
 
 --KJ SPAWN
-local player = game.Players.LocalPlayer
-repeat wait() until player.Character.Humanoid
-local humanoid = player.Character.Humanoid
-local character = player.Character or player.CharacterAdded:Wait()
-local UserInputService = game:GetService("UserInputService")
- 
-local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://17325160621"
- 
-local playAnim2 = humanoid:LoadAnimation(anim2)
-playAnim2:Play()
- 
-end)
+local function playAnimation()
+    local player = game.Players.LocalPlayer
+    repeat wait() until player.Character and player.Character:FindFirstChild("Humanoid")
+    local humanoid = player.Character.Humanoid
+    local character = player.Character or player.CharacterAdded:Wait()
+    local UserInputService = game:GetService("UserInputService")
+
+    local anim2 = Instance.new("Animation")
+    anim2.AnimationId = "rbxassetid://17325160621"
+
+    local playAnim2 = humanoid:LoadAnimation(anim2)
+    playAnim2:Play()
+end
+
+-- Call the function to play the animation when the script is executed
+playAnimation()
 
 -- Animation Handling Script
 local Players = game:GetService("Players")
