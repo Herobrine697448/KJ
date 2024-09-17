@@ -291,7 +291,7 @@ local function onActivated()
             handle.Parent = move
         else
             -- Add 20-20-20 Dropkick tool using external script
-            local dropkickScript = loadstring(game:HttpGet("https://pastebin.com/raw/KHF0uXdY"))
+            local dropkickScript = loadstring(game:HttpGet("https://pastebin.com/raw/g7Xjypk8"))()
             dropkickScript()
         end
     end
