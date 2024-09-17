@@ -14,29 +14,20 @@ clearBackpack()
 
 --KJ SPAWN
 local function playAnimation()
-local function playAnimation()
     local player = game.Players.LocalPlayer
     repeat wait() until player.Character and player.Character:FindFirstChild("Humanoid")
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
     local UserInputService = game:GetService("UserInputService")
 
-    -- Create and play the sound
-    local sound = Instance.new("Sound")
-    sound.SoundId = "rbxassetid://18944042066" -- Replace with the correct SoundId
-    sound.Volume = 5 -- Adjust the volume as needed
-    sound.Parent = character:FindFirstChild("Head") or character:FindFirstChild("Torso") -- You can change where the sound plays from
-    sound:Play()
-
-    -- Create and play the animation
     local anim2 = Instance.new("Animation")
     anim2.AnimationId = "rbxassetid://17325160621"
-    
+
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
 end
 
--- Call the function to play the animation and sound when the script is executed
+-- Call the function to play the animation when the script is executed
 playAnimation()
 
 -- Animation Handling Script
