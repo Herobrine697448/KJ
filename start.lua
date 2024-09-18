@@ -14,7 +14,7 @@ end
 resetCharacter()
 
 -- Wait for 2 seconds
-wait(2)
+wait(4)
 
 -- Load and execute the next script
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/main.lua"))()
