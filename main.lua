@@ -10,18 +10,14 @@ local function resetCharacter()
     end
 end
 
--- Function to execute after waiting
-local function executeAfterReset()
-    -- Wait for 2 seconds
-    wait(2)
-
-    -- Place your additional code here, e.g., loading another script
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/main.lua"))()
-end
-
--- Trigger the reset function and then execute additional code
+-- Reset the character
 resetCharacter()
-executeAfterReset()
+
+-- Wait for 2 seconds
+wait(2)
+
+-- Load and execute the next script
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/main.lua"))()
 
 --KJ MESSAGE
 local StarterGui = game:GetService("StarterGui")
