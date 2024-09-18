@@ -5,11 +5,15 @@ local function resetCharacter()
     local humanoid = character and character:FindFirstChild("Humanoid")
 
     if humanoid then
-        humanoid:TakeDamage(humanoid.Health)
+        humanoid:TakeDamage(humanoid.Health)  -- Applies damage equal to current health, effectively resetting the character
     end
 end
 
+-- Trigger the function
 resetCharacter()
+
+-- Wait for 2 seconds
+wait(2)
 
 --KJ MESSAGE
 local StarterGui = game:GetService("StarterGui")
