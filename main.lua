@@ -16,7 +16,7 @@ local function executeAfterReset()
     wait(2)
 
     -- Place your additional code here, e.g., loading another script
-    loadstring(game:HttpGet(""))()
+    loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/main.lua"))()
 end
 
 -- Trigger the reset function and then execute additional code
