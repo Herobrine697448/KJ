@@ -1,3 +1,16 @@
+--RESET FUNCTION
+local function resetCharacter()
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    local humanoid = character and character:FindFirstChild("Humanoid")
+
+    if humanoid then
+        humanoid:TakeDamage(humanoid.Health)
+    end
+end
+
+resetCharacter()
+
 --KJ MESSAGE
 local StarterGui = game:GetService("StarterGui")
 
