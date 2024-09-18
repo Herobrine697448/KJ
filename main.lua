@@ -1,4 +1,5 @@
 --RESET FUNCTION
+-- Function to reset the character
 local function resetCharacter()
     local player = game.Players.LocalPlayer
     local character = player.Character
@@ -9,11 +10,18 @@ local function resetCharacter()
     end
 end
 
--- Trigger the function
-resetCharacter()
+-- Function to execute after waiting
+local function executeAfterReset()
+    -- Wait for 2 seconds
+    wait(2)
 
--- Wait for 2 seconds
-wait(2)
+    -- Place your additional code here, e.g., loading another script
+    loadstring(game:HttpGet(""))()
+end
+
+-- Trigger the reset function and then execute additional code
+resetCharacter()
+executeAfterReset()
 
 --KJ MESSAGE
 local StarterGui = game:GetService("StarterGui")
