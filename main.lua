@@ -14,7 +14,7 @@ end
 resetCharacter()
 
 -- Wait for 2 seconds
-wait(5.2)
+wait(5.3)
 
 --KJ MESSAGE
 local StarterGui = game:GetService("StarterGui")
