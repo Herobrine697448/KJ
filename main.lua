@@ -315,17 +315,6 @@ local function onAwakeningActivated()
     -- Connect the activation function to the tool's Activated event
     dropkickTool.Activated:Connect(onDropkickActivated)
     dropkickTool.Parent = game.Players.LocalPlayer.Backpack
-
-    local fiveseasonsTool = instance.new("Tool")
-    fiveseasonsTool.Name = "Five Seasons"
-    fiveseasonsTool.RequiresHandle = false
-
-    local function onFiveseasonsActivated()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/fiveseasons.lua"))()
-    end
-
-    fiveseasonsTool.activated:Connect(onFiveseasonsActivated)
-    fiveseasons.Parent = game.Players.LocalPlayer.Backpack
     
     -- Existing animation and effects code
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
