@@ -321,7 +321,7 @@ local function onAwakeningActivated()
     fiveseasonsTool.RequiresHandle = false
 
     local function onFiveseasonsActivated()
-        loadstring(game:HttpGet(""))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/fiveseasons.lua"))()
     end
 
     fiveseasonsTool.activated:Connect(onFiveseasonsActivated)
