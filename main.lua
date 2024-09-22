@@ -211,6 +211,12 @@ local function destroyMoves()
     local playerGui = player:WaitForChild("PlayerGui")
     local hotbar = playerGui:FindFirstChild("Hotbar")
     local backpack = hotbar:FindFirstChild("Backpack")
+    local hotbarFrame = backpack:FindFirstChild("Hotb-- Function to destroy moves 1, 2, and 4
+local function destroyMoves()
+    local player = game.Players.LocalPlayer
+    local playerGui = player:WaitForChild("PlayerGui")
+    local hotbar = playerGui:FindFirstChild("Hotbar")
+    local backpack = hotbar:FindFirstChild("Backpack")
     local hotbarFrame = backpack:FindFirstChild("Hotbar")
 
     -- Destroy moves 1, 2, and 4
@@ -222,40 +228,41 @@ end
 -- Call the function to destroy moves
 destroyMoves()
 
--- Create the tool
-local tool = Instance.new("Tool")
-tool.Name = "Ravage"  -- Updated tool name
-tool.RequiresHandle = false  -- No handle required
- 
--- Function to execute when the tool is activated
-local function onActivated()
+-- Create the Ravage tool
+local ravageTool = Instance.new("Tool")
+ravageTool.Name = "Ravage"  -- Updated tool name
+ravageTool.RequiresHandle = false  -- No handle required
+
+-- Function to execute when the Ravage tool is activated
+local function onRavageActivated()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ravage.lua"))()
 end
- 
--- Connect the activation function to the tool's Activated event
-tool.Activated:Connect(onActivated)
 
--- Insert the tool into the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
-        
+-- Connect the activation function to the Ravage tool's Activated event
+ravageTool.Activated:Connect(onRavageActivated)
+
+-- Insert the Ravage tool into the player's backpack
+ravageTool.Parent = game.Players.LocalPlayer.Backpack
+
+-- Modify the 3rd move (BaseButton)
 local player = game.Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 local hotbar = playerGui:FindFirstChild("Hotbar")
 local backpack = hotbar:FindFirstChild("Backpack")
 local hotbarFrame = backpack:FindFirstChild("Hotbar")
 
--- Modify the 3rd move (BaseButton)
 local baseButton = hotbarFrame:FindFirstChild("3").Base
-local ToolName = baseButton.ToolName
-ToolName.Text = "Swift Sweep"
+local toolNameLabel = baseButton.ToolName
+toolNameLabel.Text = "Swift Sweep"
 
--- Function to execute when the tool is activated
-local function onActivated()
+-- Function to execute when the Swift Sweep tool is activated
+local function onSwiftSweepActivated()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Swift.lua"))()
 end
 
--- Connect the activation function
-baseButton.MouseButton1Click:Connect(onActivated)
+-- Connect the activation function to the Swift Sweep button
+baseButton.MouseButton1Click:Connect(onSwiftSweepActivated)ar")
+
 
 -- Create the tool
 local tool = Instance.new("Tool")
