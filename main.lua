@@ -25,16 +25,10 @@ StarterGui:SetCore("SendNotification", {
     Duration = 10 -- Duration in seconds
 })
 
--- Clear Backpack Script
-local function clearBackpack()
-    local player = game.Players.LocalPlayer
-    local backpack = player.Backpack
-
-    -- Clear all items in the backpack
-    for _, item in pairs(backpack:GetChildren()) do
-        item:Destroy()
-    end
-end
+-- Destroy moves 1, 2, and 4
+hotbarFrame:FindFirstChild("1"):Destroy()
+hotbarFrame:FindFirstChild("2"):Destroy()
+hotbarFrame:FindFirstChild("4"):Destroy()
 
 -- Call the function to clear the backpack
 clearBackpack()
@@ -235,24 +229,24 @@ tool.Activated:Connect(onActivated)
 -- Add the tool to the player's backpack
 tool.Parent = game.Players.LocalPlayer.Backpack
         
--- Create the tool
-local tool = Instance.new("Tool")
-tool.Name = "Swift Sweep"  -- Updated tool name
-tool.RequiresHandle = false  -- No handle required
- 
--- Insert the tool into the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
- 
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local hotbar = playerGui:FindFirstChild("Hotbar")
+local backpack = hotbar:FindFirstChild("Backpack")
+local hotbarFrame = backpack:FindFirstChild("Hotbar")
+
+-- Modify the 3rd move (BaseButton)
+local baseButton = hotbarFrame:FindFirstChild("3").Base
+local ToolName = baseButton.ToolName
+ToolName.Text = "Swift Sweep"
+
 -- Function to execute when the tool is activated
 local function onActivated()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Swift.lua"))()
 end
- 
--- Connect the activation function to the tool's Activated event
-tool.Activated:Connect(onActivated)
- 
--- Add the tool to the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
+
+-- Connect the activation function
+baseButton.MouseButton1Click:Connect(onActivated)
 
 -- Create the tool
 local tool = Instance.new("Tool")
