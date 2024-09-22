@@ -25,9 +25,6 @@ StarterGui:SetCore("SendNotification", {
     Duration = 10 -- Duration in seconds
 })
 
--- Call the function to clear the backpack
-clearBackpack()
-
 --ULTIMATE TEXT
 local plr = game.Players.LocalPlayer
 local gui = plr.PlayerGui
@@ -53,7 +50,18 @@ end
 -- Call the function to play the animation when the script is executed
 playAnimation()
 
--- Animation Handling Script
+
+    
+-- Function to destroy moves 1, 2, and 4
+local function destroyMoves()
+    local player = game.Players.LocalPlayer
+    local playerGui = player:WaitForChild("PlayerGui")
+    local hotbar = playerGui:FindFirstChild("Hotbar")
+    local backpack = hotbar:FindFirstChild("Backpack")
+    local hotbarFrame = backpack:FindFirstChild("Hotbar")
+
+    -- Destroy moves 1, 2, and 4
+    hotbarFrame:FindFirstChild("1"):Destroy()-- Animation Handling Script
 local Players = game:GetService("Players")
 
 local player = Players.LocalPlayer
@@ -192,7 +200,19 @@ end
 character.DescendantAdded:Connect(onBodyVelocityAdded)
 
 for _, descendant in pairs(character:GetDescendants()) do
-    onBodyVeloc-- Function to destroy moves 1, 2, and 4
+    onBodyVelocityAdded(descendant)
+end
+
+player.CharacterAdded:Connect(function(newCharacter)
+    character = newCharacter
+    humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    character.DescendantAdded:Connect(onBodyVelocityAdded)
+
+    for _, descendant in pairs(character:GetDescendants()) do
+        onBodyVelocityAdded(descendant)
+    end
+end)
+
 local function destroyMoves()
     local player = game.Players.LocalPlayer
     local playerGui = player:WaitForChild("PlayerGui")
@@ -204,8 +224,8 @@ local function destroyMoves()
     hotbarFrame:FindFirstChild("1"):Destroy()
     hotbarFrame:FindFirstChild("2"):Destroy()
     hotbarFrame:FindFirstChild("4"):Destroy()
-end
-
+    end
+    
 -- Call the function to destroy moves
 destroyMoves()
 
