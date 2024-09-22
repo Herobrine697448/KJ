@@ -192,26 +192,7 @@ end
 character.DescendantAdded:Connect(onBodyVelocityAdded)
 
 for _, descendant in pairs(character:GetDescendants()) do
-    onBodyVelocityAdded(descendant)
-end
-
-player.CharacterAdded:Connect(function(newCharacter)
-    character = newCharacter
-    humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-    character.DescendantAdded:Connect(onBodyVelocityAdded)
-
-    for _, descendant in pairs(character:GetDescendants()) do
-        onBodyVelocityAdded(descendant)
-    end
-end)
-
--- Function to destroy moves 1, 2, and 4
-local function destroyMoves()
-    local player = game.Players.LocalPlayer
-    local playerGui = player:WaitForChild("PlayerGui")
-    local hotbar = playerGui:FindFirstChild("Hotbar")
-    local backpack = hotbar:FindFirstChild("Backpack")
-    local hotbarFrame = backpack:FindFirstChild("Hotb-- Function to destroy moves 1, 2, and 4
+    onBodyVeloc-- Function to destroy moves 1, 2, and 4
 local function destroyMoves()
     local player = game.Players.LocalPlayer
     local playerGui = player:WaitForChild("PlayerGui")
@@ -261,8 +242,7 @@ local function onSwiftSweepActivated()
 end
 
 -- Connect the activation function to the Swift Sweep button
-baseButton.MouseButton1Click:Connect(onSwiftSweepActivated)ar")
-
+baseButton.MouseButton1Click:Connect(onSwiftSweepActivated)
 
 -- Create the tool
 local tool = Instance.new("Tool")
