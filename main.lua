@@ -224,7 +224,7 @@ local function destroyMoves()
     hotbarFrame:FindFirstChild("1"):Destroy()
     hotbarFrame:FindFirstChild("2"):Destroy()
     hotbarFrame:FindFirstChild("4"):Destroy()
-    end
+end
     
 -- Call the function to destroy moves
 destroyMoves()
