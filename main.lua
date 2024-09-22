@@ -25,11 +25,6 @@ StarterGui:SetCore("SendNotification", {
     Duration = 10 -- Duration in seconds
 })
 
--- Destroy moves 1, 2, and 4
-hotbarFrame:FindFirstChild("1"):Destroy()
-hotbarFrame:FindFirstChild("2"):Destroy()
-hotbarFrame:FindFirstChild("4"):Destroy()
-
 -- Call the function to clear the backpack
 clearBackpack()
 
@@ -210,13 +205,27 @@ player.CharacterAdded:Connect(function(newCharacter)
     end
 end)
 
+-- Function to destroy moves 1, 2, and 4
+local function destroyMoves()
+    local player = game.Players.LocalPlayer
+    local playerGui = player:WaitForChild("PlayerGui")
+    local hotbar = playerGui:FindFirstChild("Hotbar")
+    local backpack = hotbar:FindFirstChild("Backpack")
+    local hotbarFrame = backpack:FindFirstChild("Hotbar")
+
+    -- Destroy moves 1, 2, and 4
+    hotbarFrame:FindFirstChild("1"):Destroy()
+    hotbarFrame:FindFirstChild("2"):Destroy()
+    hotbarFrame:FindFirstChild("4"):Destroy()
+end
+
+-- Call the function to destroy moves
+destroyMoves()
+
 -- Create the tool
 local tool = Instance.new("Tool")
 tool.Name = "Ravage"  -- Updated tool name
 tool.RequiresHandle = false  -- No handle required
- 
--- Insert the tool into the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
  
 -- Function to execute when the tool is activated
 local function onActivated()
@@ -225,8 +234,8 @@ end
  
 -- Connect the activation function to the tool's Activated event
 tool.Activated:Connect(onActivated)
- 
--- Add the tool to the player's backpack
+
+-- Insert the tool into the player's backpack
 tool.Parent = game.Players.LocalPlayer.Backpack
         
 local player = game.Players.LocalPlayer
