@@ -98,7 +98,7 @@ local player = game.Players.LocalPlayer
 
 local moves = {
     {name = "Stoic Bomb", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/stoic_bomb.lua"},
-    {name = "20-20-20 Dropkick", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/202020_dropkick.lua"},
+    {name = "20-20-20 Dropkick", url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ultimate/20-20-20%20Dropkick.lua"},
     {name = "Five Seasons", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/five_seasons.lua"}
 }
 
