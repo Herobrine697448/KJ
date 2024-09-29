@@ -88,11 +88,18 @@ for _, child in ipairs(fine2:GetChildren()) do
     end
 end
 
--- Loadstring for moves
+local player = game.Players.LocalPlayer
+
+for _, item in ipairs(player.Backpack:GetChildren()) do
+    item:Destroy()
+end
+
+local player = game.Players.LocalPlayer
+
 local moves = {
-    {name = "Stoic Bomb", id = "rbxassetid://YourStoicBombScriptID"}, 
-    {name = "20-20-20 Dropkick", id = "rbxassetid://Your202020DropkickScriptID"},
-    {name = "Five Seasons", id = "rbxassetid://YourFiveSeasonsScriptID"}
+    {name = "Stoic Bomb", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/stoic_bomb.lua"},
+    {name = "20-20-20 Dropkick", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/202020_dropkick.lua"},
+    {name = "Five Seasons", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/five_seasons.lua"}
 }
 
 for _, move in ipairs(moves) do
@@ -100,7 +107,5 @@ for _, move in ipairs(moves) do
     moveTool.Name = move.name
     moveTool.Parent = player.Backpack
     local script = Instance.new("Script", moveTool)
-    script.Source = [[
-        loadstring(game:GetService("ReplicatedStorage").Moves.]] .. move.id .. [[:GetContent())()
-    ]]
+    script.Source = "loadstring(game:HttpGet('" .. move.url .. "'))()"
 end
