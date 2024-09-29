@@ -87,20 +87,6 @@ local function onErrorNotification()
 end
 
 local function handleIconButtonClick()
- 
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
- 
-if player and player:FindFirstChild("Backpack") then
-    local backpack = player.Backpack
- 
-    for _, item in ipairs(backpack:GetChildren()) do
-        if item:IsA("Tool") then
-            item:Destroy()
-        end
-    end
-end
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/main.lua'))()
     local character = player.Character
     if not character then
         return
@@ -120,6 +106,9 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/Herobrine697448/KJ/re
     else
         scriptHasRun.Value = true
     end
+
+    -- Load the external script
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/main.lua'))()
 end
 
 iconButton.MouseButton1Click:Connect(handleIconButtonClick)
