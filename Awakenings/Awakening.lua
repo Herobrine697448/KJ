@@ -94,18 +94,66 @@ for _, item in ipairs(player.Backpack:GetChildren()) do
     item:Destroy()
 end
 
-local player = game.Players.LocalPlayer
-
-local moves = {
-    {name = "Stoic Bomb", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/stoic_bomb.lua"},
-    {name = "20-20-20 Dropkick", url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ultimate/20-20-20%20Dropkick.lua"},
-    {name = "Five Seasons", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/five_seasons.lua"}
-}
-
-for _, move in ipairs(moves) do
-    local moveTool = Instance.new("Tool")
-    moveTool.Name = move.name
-    moveTool.Parent = player.Backpack
-    local script = Instance.new("Script", moveTool)
-    script.Source = "loadstring(game:HttpGet('" .. move.url .. "'))()"
+--STOIC BOMB TOOL
+-- Create the tool
+local tool = Instance.new("Tool")
+tool.Name = "Stoic Bomb"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet(""))()
 end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+
+
+--20-20-20 DROPKICK TOOL
+-- Create the tool
+local tool = Instance.new("Tool")
+tool.Name = "20-20-20 Dropkick"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://pastebin.com/raw/g7Xjypk8"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+
+
+-- FIVE SEASONS TOOL
+-- Create the tool
+local tool = Instance.new("Tool")
+tool.Name = "Five Seasons"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet(""))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
