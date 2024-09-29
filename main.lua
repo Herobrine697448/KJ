@@ -124,7 +124,7 @@ Tool.RequiresHandle = false
 Tool.Parent = game.Players.LocalPlayer.Backpack
 
 local function executeAwakening()
-    local url = "" -- Replace with the actual URL
+    local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Awakenings/Awakening.lua" -- Replace with the actual URL
     local scriptContent = game:HttpGet(url) -- Fetch the content from the URL
     local functionToExecute = loadstring(scriptContent)()
     if functionToExecute then
