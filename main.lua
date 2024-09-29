@@ -95,7 +95,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
 --FIVE SEASONS TEST
 -- Create the tool
 local tool = Instance.new("Tool")
-tool.Name = "Five Seasons"  -- Updated tool name
+tool.Name = "Awakening 1"  -- Updated tool name
 tool.RequiresHandle = false  -- No handle required
  
 -- Insert the tool into the player's backpack
@@ -103,7 +103,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
  
 -- Function to execute when the tool is activated
 local function onActivated()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/fiveseasons.lua"))()
+    loadstring(game:HttpGet(""))()
 end
  
 -- Connect the activation function to the tool's Activated event
