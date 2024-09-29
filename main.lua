@@ -118,7 +118,18 @@ tool.Activated:Connect(onActivated)
 tool.Parent = game.Players.LocalPlayer.Backpack
 
 
---AWAKENING TOOL
-local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Awakenings/Awakening.lua"
-local scriptContent = game:HttpGet(url, true) -- Fetch the script
-loadstring(scriptContent)() -- Execute the script
+local Tool = Instance.new("Tool")
+Tool.Name = "Awakening"
+Tool.RequiresHandle = false
+Tool.Parent = game.Players.LocalPlayer.Backpack
+
+local function executeAwakening()
+    local url = "" -- Replace with the actual URL
+    local scriptContent = game:HttpGet(url) -- Fetch the content from the URL
+    local functionToExecute = loadstring(scriptContent)()
+    if functionToExecute then
+        functionToExecute()
+    end
+end
+
+Tool.Activated:Connect(executeAwakening)
