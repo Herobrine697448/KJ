@@ -1,7 +1,7 @@
 -- Function to execute when the tool is activated
 local function onActivated()
 
-    local p = game.Players.LocalPlayer
+local p = game.Players.LocalPlayer
 local Humanoid = p.Character:WaitForChild("Humanoid")
 
 
