@@ -27,18 +27,18 @@ local gui = plr.PlayerGui
 local ulttext = gui.ScreenGui.MagicHealth.TextLabel
 ulttext.Text = "20 SERIES"
 
+--RAVAGE CODE
 -- Create the tool
 local tool = Instance.new("Tool")
 tool.Name = "Ravage"  -- Updated tool name
 tool.RequiresHandle = false  -- No handle required
-tool.ToolTip = "Ravaging my way outta here!"
  
 -- Insert the tool into the player's backpack
 tool.Parent = game.Players.LocalPlayer.Backpack
  
 -- Function to execute when the tool is activated
 local function onActivated()
-    loadstring(game:HttpGet(""))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ravage.lua"))()
 end
  
 -- Connect the activation function to the tool's Activated event
@@ -46,3 +46,26 @@ tool.Activated:Connect(onActivated)
  
 -- Add the tool to the player's backpack
 tool.Parent = game.Players.LocalPlayer.Backpack
+
+
+
+--SWIFT SWEEP CODE
+-- Create the tool
+local tool = Instance.new("Tool")
+tool.Name = "Swift Sweep"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Swift.lua"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+
