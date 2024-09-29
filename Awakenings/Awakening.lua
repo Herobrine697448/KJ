@@ -97,7 +97,7 @@ end
 --STOIC BOMB TOOL
 -- Create the tool
 local tool = Instance.new("Tool")
-tool.Name = "Stoic Bomb"  -- Updated tool name
+tool.Name = "Stoic bomb"  -- Updated tool name
 tool.RequiresHandle = false  -- No handle required
  
 -- Insert the tool into the player's backpack
