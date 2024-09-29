@@ -47,6 +47,13 @@ local gui = plr.PlayerGui
 local ulttext = gui.ScreenGui.MagicHealth.TextLabel
 ulttext.Text = "20 SERIES"
 
+--KJ M1 CHANGE (FE)
+local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/KJ%20M1.lua"
+local scriptContent = game:HttpGet(url, true) -- Fetch the script
+loadstring(scriptContent)() -- Execute the script
+
+
+
 --RAVAGE CODE
 -- Create the tool
 local tool = Instance.new("Tool")
