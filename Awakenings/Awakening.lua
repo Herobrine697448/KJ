@@ -93,19 +93,3 @@ local player = game.Players.LocalPlayer
 for _, item in ipairs(player.Backpack:GetChildren()) do
     item:Destroy()
 end
-
-local player = game.Players.LocalPlayer
-
-local moves = {
-    {name = "Stoic Bomb", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/stoic_bomb.lua"},
-    {name = "20-20-20 Dropkick", url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ultimate/20-20-20%20Dropkick.lua"},
-    {name = "Five Seasons", url = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/five_seasons.lua"}
-}
-
-for _, move in ipairs(moves) do
-    local moveTool = Instance.new("Tool")
-    moveTool.Name = move.name
-    moveTool.Parent = player.Backpack
-    local script = Instance.new("Script", moveTool)
-    script.Source = "loadstring(game:HttpGet('" .. move.url .. "'))()"
-end
