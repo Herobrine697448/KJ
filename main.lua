@@ -47,6 +47,25 @@ local gui = plr.PlayerGui
 local ulttext = gui.ScreenGui.MagicHealth.TextLabel
 ulttext.Text = "20 SERIES"
 
+--KJ SPAWN
+local function playAnimation()
+    local player = game.Players.LocalPlayer
+    repeat wait() until player.Character and player.Character:FindFirstChild("Humanoid")
+    local humanoid = player.Character.Humanoid
+    local character = player.Character or player.CharacterAdded:Wait()
+    local UserInputService = game:GetService("UserInputService")
+
+    local anim2 = Instance.new("Animation")
+    anim2.AnimationId = "rbxassetid://17325160621"
+
+    local playAnim2 = humanoid:LoadAnimation(anim2)
+    playAnim2:Play()
+end
+
+-- Call the function to play the animation when the script is executed
+playAnimation()
+
+
 --KJ M1 CHANGE (FE)
 local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/KJ%20M1.lua"
 local scriptContent = game:HttpGet(url, true) -- Fetch the script
