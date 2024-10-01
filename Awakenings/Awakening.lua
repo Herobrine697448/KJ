@@ -94,6 +94,29 @@ for _, item in ipairs(player.Backpack:GetChildren()) do
     item:Destroy()
 end
 
+
+--STOIC BOMB
+local tool = Instance.new("Tool")
+tool.Name = "Stoic Bomb"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://pastebin.com/raw/a6qgCWqL"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+
+
+-- 20-20-20 DROPKICK
 local tool = Instance.new("Tool")
 tool.Name = "20-20-20 Dropkick"  -- Updated tool name
 tool.RequiresHandle = false  -- No handle required
@@ -104,6 +127,26 @@ tool.Parent = game.Players.LocalPlayer.Backpack
 -- Function to execute when the tool is activated
 local function onActivated()
     loadstring(game:HttpGet("https://pastebin.com/raw/g7Xjypk8"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+
+--UNLIMITED FLEXWORKS
+local tool = Instance.new("Tool")
+tool.Name = "Unlimited Flexworks"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet(""))()
 end
  
 -- Connect the activation function to the tool's Activated event
