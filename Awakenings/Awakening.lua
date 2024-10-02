@@ -28,7 +28,7 @@ local fine = game.ReplicatedStorage.Resources.KJEffects["fine...1"].EnableBatch2
 fine.Parent = game.Players.LocalPlayer.Character["Torso"]
 for _, child in ipairs(fine:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(5)
+        child:Emit(20)
     end
 end
 
@@ -36,7 +36,7 @@ local fine3 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"].EmitBatc
 fine3.Parent = game.Players.LocalPlayer.Character["Torso"]
 for _, child in ipairs(fine3:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(5)
+        child:Emit(20)
     end
 end
 
@@ -44,7 +44,7 @@ local red = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD1:Clone
 red.Parent = game.Players.LocalPlayer.Character["Right Leg"]
 for _, child in ipairs(red:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(5)
+        child:Emit(20)
     end
 end
 
@@ -52,7 +52,7 @@ local red2 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD2:Clon
 red2.Parent = game.Players.LocalPlayer.Character["Left Leg"]
 for _, child in ipairs(red2:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(5)
+        child:Emit(20)
     end
 end
 
@@ -60,7 +60,7 @@ local red3 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD3:Clon
 red3.Parent = game.Players.LocalPlayer.Character["Left Leg"]
 for _, child in ipairs(red3:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(5)
+        child:Emit(20)
     end
 end
 
@@ -68,7 +68,7 @@ local red4 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD4:Clon
 red4.Parent = game.Players.LocalPlayer.Character["Right Leg"]
 for _, child in ipairs(red4:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(5)
+        child:Emit(20)
     end
 end
 
