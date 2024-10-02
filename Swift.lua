@@ -1,9 +1,7 @@
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
 local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
 local humanoid = player.Character.Humanoid
 local character = player.Character or player.CharacterAdded:Wait()
-local UserInputService = game:GetService("UserInputService")
 
 local anim2 = Instance.new("Animation")
 anim2.AnimationId = "rbxassetid://16944345619"
@@ -18,7 +16,6 @@ sound.SoundId = "rbxassetid://18654280691"
 sound:Play()
 
 wait(1)
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 
 -- New part for Weakest Dummy proximity check
 local dummy = game.Workspace.Live["Weakest Dummy"]
@@ -30,18 +27,26 @@ dummyAnim.AnimationId = "rbxassetid://10471478869"
 
 local playDummyAnim = dummyhumanoid:LoadAnimation(dummyAnim)
 
--- Check distance before playing dummy animation
-local function playAnimationIfClose()
-    local playerPosition = character.PrimaryPart.Position
-    local dummyPosition = dummy.PrimaryPart.Position
-    local distance = (playerPosition - dummyPosition).magnitude
-
-    if distance <= 5 then -- Punching range is around 5 studs
+-- Function to play the animation
+local function playDummyAnimation()
+    if not playDummyAnim.IsPlaying then
         playDummyAnim:Play()
     end
 end
 
--- Monitor player's proximity to the dummy
-while wait(0.1) do
-    playAnimationIfClose()
-end
+-- Check the player's proximity to the dummy and trigger animation when using the tool
+local tool = Instance.new("Tool") -- Your tool that triggers this script
+tool.Activated:Connect(function()
+    local playerPosition = character.PrimaryPart.Position
+    local dummyPosition = dummy.PrimaryPart.Position
+    local distance = (playerPosition - dummyPosition).magnitude
+
+    if distance <= 5 then -- Check if within range (5 studs)
+        playDummyAnimation()
+    end
+end)
+
+-- Stop the animation once it completes
+playDummyAnim.Stopped:Connect(function()
+    playDummyAnim:Stop()
+end)
