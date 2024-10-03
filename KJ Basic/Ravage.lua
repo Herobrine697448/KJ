@@ -21,6 +21,21 @@ playAnim:AdjustSpeed(0.3)
 wait(0.3)
 playAnim:AdjustSpeed(1)
 
+local player = game.Players.LocalPlayer
+local humanoid = player.Character:WaitForChild("Humanoid")
+
+local function dealDamage()
+    local originalHealth = humanoid.Health
+    local damageAmount = originalHealth * 0.26
+    humanoid.Health = humanoid.Health - damageAmount
+
+    wait(4.7) -- Wait for 4.7 seconds
+
+    humanoid.Health = originalHealth -- Restore health to original value
+end
+
+dealDamage()
+
 local Players = game:GetService("Players")
 local Character = Players.LocalPlayer.Character or Players.LocalPlayer.CharacterAdded:Wait()
 
