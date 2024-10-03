@@ -12,7 +12,7 @@ playAnim2:Play()
 
 -- Add sound
 local sound = Instance.new("Sound", character)
-sound.SoundId = "rbxassetid://18654280691"
+sound.SoundId = "rbxassetid://128778280599620"
 sound:Play()
 
 wait(1)
