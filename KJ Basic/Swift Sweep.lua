@@ -17,15 +17,22 @@ sound:Play()
 
 wait(1)
 
+-- Ensure PrimaryPart is set for both the player and the dummy
+character.PrimaryPart = character:FindFirstChild("HumanoidRootPart")
+
 -- New part for Weakest Dummy proximity check
 local dummy = game.Workspace.Live["Weakest Dummy"]
 repeat wait() until dummy.Humanoid
 local dummyhumanoid = dummy.Humanoid
 
+-- Set dummy's PrimaryPart
+dummy.PrimaryPart = dummy:FindFirstChild("HumanoidRootPart")
+
 local dummyAnim = Instance.new("Animation")
 dummyAnim.AnimationId = "rbxassetid://10471478869"
 
 local playDummyAnim = dummyhumanoid:LoadAnimation(dummyAnim)
+playDummyAnim.Priority = Enum.AnimationPriority.Action -- Ensure it has proper priority
 
 -- Function to play the animation
 local function playDummyAnimation()
@@ -35,7 +42,6 @@ local function playDummyAnimation()
 end
 
 -- Check the player's proximity to the dummy and trigger animation when using the tool
-local tool = Instance.new("Tool") -- Your tool that triggers this script
 tool.Activated:Connect(function()
     local playerPosition = character.PrimaryPart.Position
     local dummyPosition = dummy.PrimaryPart.Position
