@@ -1,3 +1,9 @@
+local player = game.Players.LocalPlayer
+
+for _, item in ipairs(player.Backpack:GetChildren()) do
+    item:Destroy()
+end
+
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
 local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
@@ -87,13 +93,6 @@ for _, child in ipairs(fine2:GetChildren()) do
         child:Emit(1)
     end
 end
-
-local player = game.Players.LocalPlayer
-
-for _, item in ipairs(player.Backpack:GetChildren()) do
-    item:Destroy()
-end
-
 
 --STOIC BOMB
 local tool = Instance.new("Tool")
