@@ -1,3 +1,9 @@
+local player = game.Players.LocalPlayer
+
+for _, item in ipairs(player.Backpack:GetChildren()) do
+    item:Destroy()
+end
+
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
 local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
@@ -111,3 +117,75 @@ leap1.Parent = game.Players.LocalPlayer.Character["Torso"]
     end
 wait(0.9)
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+
+
+--BACKPACK CLEAR
+local player = game.Players.LocalPlayer
+
+for _, item in ipairs(player.Backpack:GetChildren()) do
+    item:Destroy()
+end
+
+
+
+--ULTIMATE MOVES
+--STOIC BOMB
+local tool = Instance.new("Tool")
+tool.Name = "Stoic Bomb"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ultimate/Stoic%20Bomb.lua"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+
+
+-- 20-20-20 DROPKICK
+local tool = Instance.new("Tool")
+tool.Name = "20-20-20 Dropkick"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://pastebin.com/raw/g7Xjypk8"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+
+--FIVE SEASONS
+local tool = Instance.new("Tool")
+tool.Name = "Five Seasons"  -- Updated tool name
+tool.RequiresHandle = false  -- No handle required
+ 
+-- Insert the tool into the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+ 
+-- Function to execute when the tool is activated
+local function onActivated()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ultimate/Five%20Seasons.lua"))()
+end
+ 
+-- Connect the activation function to the tool's Activated event
+tool.Activated:Connect(onActivated)
+ 
+-- Add the tool to the player's backpack
+tool.Parent = game.Players.LocalPlayer.Backpack
+
