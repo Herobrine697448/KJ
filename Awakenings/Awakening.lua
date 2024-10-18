@@ -146,7 +146,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
  
 -- Function to execute when the tool is activated
 local function onActivated()
-    loadstring(game:HttpGet(""))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ultimate/Five%20Seasons.lua"))()
 end
  
 -- Connect the activation function to the tool's Activated event
