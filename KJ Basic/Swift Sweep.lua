@@ -4,7 +4,7 @@ local humanoid = player.Character.Humanoid
 local character = player.Character or player.CharacterAdded:Wait()
 
 local anim2 = Instance.new("Animation")
-anim2.AnimationId = "rbxassetid://16944345619"
+anim2.AnimationId = "rbxassetid://18716997669"
 
 local playAnim2 = humanoid:LoadAnimation(anim2)
 anim2.AnimationId = "rbxassetid://0"
