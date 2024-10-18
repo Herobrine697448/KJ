@@ -64,6 +64,7 @@ local function playAnimation()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://17325174223"
     sound.Parent = character
+    sound.Volume = 3
     sound:Play()
 end
 
