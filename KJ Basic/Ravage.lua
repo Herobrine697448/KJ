@@ -141,10 +141,10 @@ local pchar= game.Workspace.Live:FindFirstChild("Weakest Dummy")
     wait(0.1)
     
     local hit1 = game.ReplicatedStorage.Resources.KJEffects["lastkick"].Attachment:Clone()
-    hit1.Parent = game.Players.LocalPlayer.Character["Torso"]
+    hit1.Parent = game.Players.LocalPlayer.Character["Right Leg"]
         for _, child in ipairs(hit1:GetChildren()) do
             if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
-                child:Emit(20) -- Emit 20 particles
+                child:Emit(5) -- Emit 20 particles
             end
         end
         wait(5) -- Wait before resetting debounce
