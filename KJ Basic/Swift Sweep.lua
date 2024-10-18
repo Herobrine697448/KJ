@@ -26,7 +26,7 @@ local LegSweepHit1 = game.ReplicatedStorage.Resources.KJEffects["LegSweepHit"].H
 LegSweepHit1.Parent = game.Players.LocalPlayer.Character["Left Leg"]
 for _, child in ipairs(LegSweepHit1:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(20)
+        child:Emit(5)
     end
 end
 
@@ -34,7 +34,7 @@ local LegSweepHit2 = game.ReplicatedStorage.Resources.KJEffects["LegSweepHit"].H
 LegSweepHit2.Parent = game.Players.LocalPlayer.Character["Left Leg"]
 for _, child in ipairs(LegSweepHit2:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(20)
+        child:Emit(5)
     end
 end
 
