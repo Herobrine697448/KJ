@@ -66,7 +66,7 @@ local red3 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD3:Clon
 red3.Parent = game.Players.LocalPlayer.Character["Left Leg"]
 for _, child in ipairs(red3:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(1)
+        child:Emit(20)
     end
 end
 
@@ -74,7 +74,7 @@ local red4 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD4:Clon
 red4.Parent = game.Players.LocalPlayer.Character["Right Leg"]
 for _, child in ipairs(red4:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(1)
+        child:Emit(20)
     end
 end
 
@@ -90,7 +90,7 @@ local fine2 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"].EmitBat
 fine2.Parent = game.Players.LocalPlayer.Character["Right Arm"]
 for _, child in ipairs(fine2:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(1)
+        child:Emit(20)
     end
 end
 
@@ -104,7 +104,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
  
 -- Function to execute when the tool is activated
 local function onActivated()
-    loadstring(game:HttpGet("https://pastebin.com/raw/a6qgCWqL"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ultimate/Stoic%20Bomb.lua"))()
 end
  
 -- Connect the activation function to the tool's Activated event
