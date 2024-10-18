@@ -60,9 +60,13 @@ local function playAnimation()
 
     local playAnim2 = humanoid:LoadAnimation(anim2)
     playAnim2:Play()
+
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://17325174223"
+    sound.Parent = character
+    sound:Play()
 end
 
--- Call the function to play the animation when the script is executed
 playAnimation()
 
 
