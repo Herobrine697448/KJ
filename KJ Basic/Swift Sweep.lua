@@ -14,3 +14,7 @@ playAnim2:Play()
 local sound = Instance.new("Sound", character)
 sound.SoundId = "rbxassetid://128778280599620"
 sound:Play()
+
+
+ local resourcesFolder = ReplicatedStorage:WaitForChild("Resources")
+ local kjEffectsFolder = resourcesFolder:WaitForChild("KJEffects")
