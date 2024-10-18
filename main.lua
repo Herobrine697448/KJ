@@ -132,7 +132,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
  
 -- Function to execute when the tool is activated
 local function onActivated()
-    loadstring(game:HttpGet("https://pastebin.com/raw/Fyku4tS9"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/KJ%20Basic/Collateral%20Ruin.lua"))()
 end
  
 -- Connect the activation function to the tool's Activated event
