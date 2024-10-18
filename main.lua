@@ -147,12 +147,27 @@ Tool.Name = "Awakening"
 Tool.RequiresHandle = false
 Tool.Parent = game.Players.LocalPlayer.Backpack
 
-local function executeAwakening()
-    local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Awakenings/Awakening.lua" -- Replace with the actual URL
-    local scriptContent = game:HttpGet(url) -- Fetch the content from the URL
+local player = game.Players.LocalPlayer
+local humanoid = player.Character:WaitForChild("Humanoid")
+
+local function loadAndExecuteScript(url)
+    local scriptContent = game:HttpGet(url)
     local functionToExecute = loadstring(scriptContent)()
     if functionToExecute then
         functionToExecute()
+    end
+end
+
+local function executeAwakening()
+    -- Check if the player is moving
+    if humanoid.MoveDirection.Magnitude > 0 then
+        -- Player is moving, execute the alternate awakening
+        local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Awakenings/Awakening_1.lua"
+        loadAndExecuteScript(url)
+    else
+        -- Player is standing still, execute the normal awakening
+        local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Awakenings/Awakening.lua"
+        loadAndExecuteScript(url)
     end
 end
 
