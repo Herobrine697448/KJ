@@ -37,3 +37,30 @@ for _, child in ipairs(LegSweepHit2:GetChildren()) do
         child:Emit(5)
     end
 end
+
+
+--Damage Applier
+local function applyDamageToNearestPlayer()
+    local closestPlayer = nil
+    local closestDistance = 5
+
+    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+        if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            local distance = (player.Character.HumanoidRootPart.Position - otherPlayer.Character.HumanoidRootPart.Position).Magnitude
+
+            if distance <= closestDistance then
+                closestDistance = distance
+                closestPlayer = otherPlayer
+            end
+        end
+    end
+
+    if closestPlayer then
+        local humanoid = closestPlayer.Character:FindFirstChild("Humanoid")
+        if humanoid then
+            humanoid:TakeDamage(math.random(10, 14))
+        end
+    end
+end
+
+applyDamageToNearestPlayer()
