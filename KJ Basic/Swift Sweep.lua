@@ -19,7 +19,7 @@ local function enableParticleEmitters(parent)
 end
 
 local LegSweepHit1 = game.ReplicatedStorage.Resources.KJEffects["LegSweepHit"].Hit:Clone()
-LegSweepHit1.Parent = game.Players.LocalPlayer.Character["Left Arm"]
+LegSweepHit1.Parent = game.Players.LocalPlayer.Character["Left Leg"]
 for _, child in ipairs(LegSweepHit1:GetChildren()) do
     if child:IsA("ParticleEmitter") then
         child:Emit(25)
