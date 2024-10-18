@@ -124,7 +124,7 @@ local pchar= game.Workspace.Live:FindFirstChild("Weakest Dummy")
     hit1.Parent = game.Players.LocalPlayer.Character["Right Arm"]
         for _, child in ipairs(hit1:GetChildren()) do
             if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
-                child:Emit(25) -- Emit 20 particles
+                child:Emit(90) -- Emit 20 particles
             end
         end
     wait(1)
@@ -132,7 +132,7 @@ local pchar= game.Workspace.Live:FindFirstChild("Weakest Dummy")
     hit1.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
         for _, child in ipairs(hit1:GetChildren()) do
             if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
-                child:Emit(8) -- Emit 20 particles
+                child:Emit(20) -- Emit 20 particles
             end
         end
     
@@ -144,7 +144,7 @@ local pchar= game.Workspace.Live:FindFirstChild("Weakest Dummy")
     hit1.Parent = game.Players.LocalPlayer.Character["Torso"]
         for _, child in ipairs(hit1:GetChildren()) do
             if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
-                child:Emit(5) -- Emit 20 particles
+                child:Emit(10) -- Emit 20 particles
             end
         end
         wait(5) -- Wait before resetting debounce
