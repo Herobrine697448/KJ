@@ -10,11 +10,19 @@ local playAnim2 = humanoid:LoadAnimation(anim2)
 anim2.AnimationId = "rbxassetid://0"
 playAnim2:Play()
 
--- Add sound
-local sound = Instance.new("Sound", character)
-sound.SoundId = "rbxassetid://128778280599620"
-sound:Play()
+local function enableParticleEmitters(parent)
+    for _, descendant in ipairs(parent:GetDescendants()) do
+        if descendant:IsA("ParticleEmitter") then
+            descendant.Enabled = true
+        end
+    end
+end
 
-
- local resourcesFolder = ReplicatedStorage:WaitForChild("Resources")
- local kjEffectsFolder = resourcesFolder:WaitForChild("KJEffects")
+local LegSweepHit1 = game.ReplicatedStorage.Resources.KJEffects["LegSweepHit"].Hit:Clone()
+LegSweepHit1.Parent = game.Players.LocalPlayer.Character["Left Arm"]
+for _, child in ipairs(LegSweepHit1:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(25)
+    end
+end
+wait(2)
