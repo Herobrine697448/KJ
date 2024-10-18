@@ -1,3 +1,10 @@
+local player = game.Players.LocalPlayer
+
+for _, item in ipairs(player.Backpack:GetChildren()) do
+    item:Destroy()
+end
+
+
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
 local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
