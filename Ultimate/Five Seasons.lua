@@ -95,3 +95,13 @@ wait(1.8)
 armBurst3:Destroy()
 armBurst4:Destroy()
 armFX2:Destroy()
+
+
+-- Summon Fists
+local Fist = game.ReplicatedStorage.Resources.FiveSeasonsFX["FistsModelMirrored"].Fists:Clone()
+Fist.Parent = player.Character["Left Arm"]
+for _, child in ipairs(Fist:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(5)
+    end
+end
