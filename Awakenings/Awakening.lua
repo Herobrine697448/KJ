@@ -1,9 +1,3 @@
-local player = game.Players.LocalPlayer
-
-for _, item in ipairs(player.Backpack:GetChildren()) do
-    item:Destroy()
-end
-
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
 local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
@@ -34,7 +28,7 @@ local fine = game.ReplicatedStorage.Resources.KJEffects["fine...1"].EnableBatch2
 fine.Parent = game.Players.LocalPlayer.Character["Torso"]
 for _, child in ipairs(fine:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(1)
+        child:Emit(25)
     end
 end
 
@@ -92,6 +86,13 @@ for _, child in ipairs(fine2:GetChildren()) do
     if child:IsA("ParticleEmitter") then
         child:Emit(20)
     end
+end
+--AWAKENING ENDED
+
+local player = game.Players.LocalPlayer
+
+for _, item in ipairs(player.Backpack:GetChildren()) do
+    item:Destroy()
 end
 
 --STOIC BOMB
