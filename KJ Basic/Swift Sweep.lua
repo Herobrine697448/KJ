@@ -37,4 +37,3 @@ for _, child in ipairs(LegSweepHit2:GetChildren()) do
         child:Emit(5)
     end
 end
-
