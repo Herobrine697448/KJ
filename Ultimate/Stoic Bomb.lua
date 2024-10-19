@@ -81,6 +81,14 @@ for _, child in ipairs(Main:GetChildren()) do
     end
 end
 
+local OHNO = game.ReplicatedStorage.Resources.StoicBomb.Impact["Part"].Attachment:Clone()
+OHNO.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(OHNO:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(30)
+    end
+end
+
 --EXPLOSION END
 wait(0.7)
 local function playSound()
