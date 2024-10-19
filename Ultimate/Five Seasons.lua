@@ -3,6 +3,67 @@ repeat wait() until player.Character.Humanoid
 local humanoid = player.Character.Humanoid
 local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local torso = character:FindFirstChild("Torso")
+local workspace = game:GetService("Workspace")
+
+
+--START OF FIVESEASONS JUMPFX
+local resourcesFolder = ReplicatedStorage:FindFirstChild("Resources")
+if not resourcesFolder then return end
+
+
+local fiveSeasonsFX = resourcesFolder:FindFirstChild("FiveSeasonsFX")
+if not fiveSeasonsFX then return end
+
+
+local jumpFXModel = fiveSeasonsFX:FindFirstChild("JumpFX")
+if not jumpFXModel then return end
+
+
+local jumpFXPart = jumpFXModel:FindFirstChild("JumpFX")
+if not jumpFXPart then return end
+
+
+local clonedJumpFX = jumpFXPart:Clone()
+clonedJumpFX.Parent = workspace
+
+
+local function emitParticles(instance)
+    for _, child in ipairs(instance:GetDescendants()) do
+        if child:IsA("ParticleEmitter") then
+            child.Enabled = true
+            child:Emit(1)
+            child.Enabled = false
+        end
+    end
+end
+
+
+local function positionOnFloor(part)
+    if torso then
+        local torsoPosition = torso.Position
+        local rayOrigin = torsoPosition + Vector3.new(0, 10, 0)
+        local rayDirection = Vector3.new(0, -20, 0)
+        local raycastResult = workspace:Raycast(rayOrigin, rayDirection)
+
+
+        if raycastResult then
+            part.Position = raycastResult.Position - Vector3.new(0, 0.9, 0)
+        end
+    end
+end
+
+
+emitParticles(clonedJumpFX)
+positionOnFloor(clonedJumpFX)
+--END OF FIVE SEASONS JUMPFX
+
+
+--FIVE SEASONS ANIMATION START
+wait(0.3)
 local anim = Instance.new("Animation")
 anim.AnimationId = "rbxassetid://18462892217"
 local playAnim = humanoid:LoadAnimation(anim)
@@ -21,7 +82,7 @@ end
 playSound()
 
 --KJ TALK
-wait(1.2)
+wait(1.4)
 local function playSound()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://18460893321"
@@ -100,16 +161,9 @@ for _, child in ipairs(armFX2:GetChildren()) do
     end
 end
 
-wait(1.8)
-
--- Destroy the second set of effects
-armBurst3:Destroy()
-armBurst4:Destroy()
-armFX2:Destroy()
-
 
 --KJ FIVESEASONS TPTHING SOUND
-wait(0.6)
+wait(2.9)
 local function playSound()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://18461671633"
@@ -119,6 +173,14 @@ local function playSound()
 end
 
 playSound()
+
+
+wait(5.4)
+-- Destroy the second set of effects
+armBurst3:Destroy()
+armBurst4:Destroy()
+armFX2:Destroy()
+
 
 
 wait(6)
