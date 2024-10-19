@@ -20,6 +20,32 @@ end
 
 playSound()
 
+--KJ TALK
+wait(1.2)
+local function playSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://18460893321"
+    sound.Parent = character
+    sound.Volume = 1
+    sound:Play()
+end
+
+playSound()
+
+
+
+--KJ FIVESEASONS TPTHING SOUND
+wait(1)
+local function playSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://18461671633"
+    sound.Parent = character
+    sound.Volume = 4
+    sound:Play()
+end
+
+playSound()
+
 
 --START VFX
 wait(3.5)
