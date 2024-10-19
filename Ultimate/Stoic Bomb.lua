@@ -43,7 +43,7 @@ end
 playSound()
 
 --EXPLOSION START
-wait(0.3)
+wait(0.2)
 local function playSound()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://17141392976"
@@ -52,10 +52,37 @@ local function playSound()
     sound:Play()
 end
 playSound()
+wait(1.2)
 
+
+local HEAT = game.ReplicatedStorage.Resources.StoicBomb.HEAT["Part"].Attachment:Clone()
+HEAT.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(HEAT:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(5)
+    end
+end
+wait(1)
+HEAT:Destroy(2)
+
+local Pre = game.ReplicatedStorage.Resources.StoicBomb.pre["Part"].Attachment:Clone()
+Pre.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(Pre:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(10)
+    end
+end
+
+local Main = game.ReplicatedStorage.Resources.StoicBomb.Main["Part"].Attachment:Clone()
+Main.Parent = game.Players.LocalPlayer.Character["Torso"]
+for _, child in ipairs(Main:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(8)
+    end
+end
 
 --EXPLOSION END
-wait(2.8)
+wait(0.7)
 local function playSound()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://17141392854"
@@ -64,3 +91,12 @@ local function playSound()
     sound:Play()
 end
 playSound()
+
+--EXPLOSION VFX SMOKE
+local StoicSmoke = game.ReplicatedStorage.Resources.KJEffects["stoic bomb boom entrance"].THEACTUALBOOM:Clone()
+StoicSmoke.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
+for _, child in ipairs(StoicSmoke:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(8)
+    end
+end
