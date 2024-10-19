@@ -2,7 +2,6 @@
         local TS = game:GetService("TweenService")
         local RunService = game:GetService("RunService")
         
-        local FinalDamage = 75
         local sped = 200
         local candash = true
         local hit = 0
@@ -1392,36 +1391,4 @@
             Humanoid.WalkSpeed = 16
             workspace.Dropkick_SFX:Destroy()
             workspace.Dropkick_Miss:Destroy()
-            -- TÃƒÂ¼m 'speedlines' adÃ„Â±ndaki parÃƒÂ§alarÃ„Â± bulup silen script
-        local targetName = "thespeedthingunderultik"
-        
-        -- Workspace'teki tÃƒÂ¼m objeleri dÃƒÂ¶ner
-        for _, obj in pairs(workspace:GetDescendants()) do
-            -- EÃ„Å¸er objenin adÃ„Â± 'speedlines' ise
-            if obj:IsA("BasePart") and obj.Name == targetName then
-                -- Objeyi sil
-                obj:Destroy()
-            end
-        end
-        -- TÃƒÂ¼m 'speedlines' adÃ„Â±ndaki parÃƒÂ§alarÃ„Â± bulup silen script
-        local targetName = "speedlines"
-        
-        -- Workspace'teki tÃƒÂ¼m objeleri dÃƒÂ¶ner
-        for _, obj in pairs(workspace:GetDescendants()) do
-            -- EÃ„Å¸er objenin adÃ„Â± 'speedlines' ise
-            if obj:IsA("BasePart") and obj.Name == targetName then
-                -- Objeyi sil
-                obj:Destroy()
-            end
-        end
-        local targetName = "speedlinesandstuff"
-        
-        -- Workspace'teki tÃƒÂ¼m objeleri dÃƒÂ¶ner
-        for _, obj in pairs(workspace:GetDescendants()) do
-            -- EÃ„Å¸er objenin adÃ„Â± 'speedlines' ise
-            if obj:IsA("BasePart") and obj.Name == targetName then
-                -- Objeyi sil
-                obj:Destroy()
-            end
-        end
         end)	
