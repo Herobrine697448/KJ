@@ -109,7 +109,7 @@ armFX2:Destroy()
 
 
 --KJ FIVESEASONS TPTHING SOUND
-wait(0.8)
+wait(0.6)
 local function playSound()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://18461671633"
