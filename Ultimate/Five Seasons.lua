@@ -32,23 +32,8 @@ end
 
 playSound()
 
-
-
---KJ FIVESEASONS TPTHING SOUND
-wait(1)
-local function playSound()
-    local sound = Instance.new("Sound")
-    sound.SoundId = "rbxassetid://18461671633"
-    sound.Parent = character
-    sound.Volume = 4
-    sound:Play()
-end
-
-playSound()
-
-
 --START VFX
-wait(3.5)
+wait(2)
 -- First burst of effects on the Left Arm
 local armBurst1 = game.ReplicatedStorage.Resources.FiveSeasonsFX["CharFX"].ArmBurst.Attachment:Clone()
 armBurst1.Parent = game.Players.LocalPlayer.Character["Left Arm"]
@@ -74,7 +59,7 @@ for _, child in ipairs(armFX1:GetChildren()) do
     end
 end
 
-wait(2.1)
+wait(2)
 
 -- Destroy the first set of effects
 armBurst1:Destroy()
@@ -121,6 +106,19 @@ wait(1.8)
 armBurst3:Destroy()
 armBurst4:Destroy()
 armFX2:Destroy()
+
+
+--KJ FIVESEASONS TPTHING SOUND
+wait(0.8)
+local function playSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://18461671633"
+    sound.Parent = character
+    sound.Volume = 4
+    sound:Play()
+end
+
+playSound()
 
 
 wait(6)
