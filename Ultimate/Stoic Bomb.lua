@@ -69,7 +69,7 @@ local Pre = game.ReplicatedStorage.Resources.StoicBomb.pre["Part"].Attachment:Cl
 Pre.Parent = game.Players.LocalPlayer.Character["Torso"]
 for _, child in ipairs(Pre:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(10)
+        child:Emit(8)
     end
 end
 
@@ -85,7 +85,7 @@ local OHNO = game.ReplicatedStorage.Resources.StoicBomb.Impact["Part"].Attachmen
 OHNO.Parent = game.Players.LocalPlayer.Character["Torso"]
 for _, child in ipairs(OHNO:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(30)
+        child:Emit(10)
     end
 end
 
@@ -105,6 +105,10 @@ local StoicSmoke = game.ReplicatedStorage.Resources.KJEffects["stoic bomb boom e
 StoicSmoke.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
 for _, child in ipairs(StoicSmoke:GetChildren()) do
     if child:IsA("ParticleEmitter") then
+        child:Emit(8)
+    end
+end
+ then
         child:Emit(8)
     end
 end
