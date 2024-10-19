@@ -11,7 +11,7 @@ end
 
 -- Reset the character
 resetCharacter()
-wait(5.5)
+wait(5.6)
 
 
 --BACKPACK CLEAR
