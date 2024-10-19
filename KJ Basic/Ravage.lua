@@ -115,7 +115,7 @@ local pchar= game.Workspace.Live:FindFirstChild("Weakest Dummy")
     hit1.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
         for _, child in ipairs(hit1:GetChildren()) do
             if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
-                child:Emit(20) -- Emit 20 particles
+                child:Emit(50) -- Emit 2050 particles
             end
         end
     wait(2)
@@ -124,7 +124,7 @@ local pchar= game.Workspace.Live:FindFirstChild("Weakest Dummy")
     hit1.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
         for _, child in ipairs(hit1:GetChildren()) do
             if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
-                child:Emit(20) -- Emit 20 particles
+                child:Emit(50) -- Emit 20 particles
             end
         end
     wait(1)
