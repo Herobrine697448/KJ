@@ -42,17 +42,23 @@ local function onAnimationPlayed(animationTrack)
             animTrack:Stop()
         end
 
+        local sound = Instance.new("Sound")
+        sound.SoundId = "rbxassetid://18443048724"
+        sound.Volume = 3
+        sound.Parent = game.Players.LocalPlayer.Character
+
         local AnimAnim = Instance.new("Animation")
         AnimAnim.AnimationId = "rbxassetid://18447913645"
         local Anim = Humanoid:LoadAnimation(AnimAnim)
         AnimAnim.AnimationId = "rbxassetid://0"
 
-        local startTime = 2.9
-
         Anim:Play()
         Anim:AdjustSpeed(0)
-        Anim.TimePosition = startTime
         Anim:AdjustSpeed(1)
+
+        sound:Play()
+        sound:AdjustSpeed(3)
+        sound:AdjustSpeed(4)
     end
 end
 
