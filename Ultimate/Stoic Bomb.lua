@@ -108,7 +108,3 @@ for _, child in ipairs(StoicSmoke:GetChildren()) do
         child:Emit(8)
     end
 end
- then
-        child:Emit(8)
-    end
-end
