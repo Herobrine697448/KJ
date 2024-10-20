@@ -166,15 +166,8 @@ collateral8.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
     for _, child in ipairs(collateral8:GetChildren()) do
         if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
             child:Emit(10) -- Emit 20 particles
-        end
     end
-local fine3 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"].EmitBatch2:Clone()
-fine3.Parent = game.Players.LocalPlayer.Character["Torso"]
-    for _, child in ipairs(fine3:GetChildren()) do
-        if child:IsA("ParticleEmitter") then -- Check if the child is a ParticleEmitter
-            child:Emit(20) -- Emit 20 particles
-        end
-    end
+ end
 local boom1 = game.ReplicatedStorage.Resources.KJEffects["ImpactEffect2"].Attachment:Clone()
 boom1.Parent = game.Players.LocalPlayer.Character["Torso"]
     for _, child in ipairs(boom1:GetChildren()) do
