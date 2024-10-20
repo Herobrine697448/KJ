@@ -54,7 +54,7 @@ local function onAnimationPlayed(animationTrack)
         
         Anim:Play()
         sound:Play()
-        wait(4.9)
+        wait(5.4)
         local Origin = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo["FinalImpact"].Origin:Clone()
         Origin.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
         for _, child in ipairs(Origin:GetChildren()) do
