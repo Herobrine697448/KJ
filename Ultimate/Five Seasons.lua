@@ -63,7 +63,7 @@ positionOnFloor(clonedJumpFX)
 
 
 --FIVE SEASONS ANIMATION START
-wait(0.3)
+wait(0.1)
 local anim = Instance.new("Animation")
 anim.AnimationId = "rbxassetid://18462892217"
 local playAnim = humanoid:LoadAnimation(anim)
@@ -94,7 +94,7 @@ end
 playSound()
 
 --START VFX
-wait(2)
+wait(1.2)
 -- First burst of effects on the Left Arm
 local armBurst1 = game.ReplicatedStorage.Resources.FiveSeasonsFX["CharFX"].ArmBurst.Attachment:Clone()
 armBurst1.Parent = game.Players.LocalPlayer.Character["Left Arm"]
@@ -120,21 +120,12 @@ for _, child in ipairs(armFX1:GetChildren()) do
     end
 end
 
-wait(2)
+wait(1.5)
 
 -- Destroy the first set of effects
 armBurst1:Destroy()
 armBurst2:Destroy()
 armFX1:Destroy()
-
--- Eye effect on the Head
-local eyeEmit = game.ReplicatedStorage.Resources.FiveSeasonsFX["CharFX"].EyeEmit:Clone()
-eyeEmit.Parent = game.Players.LocalPlayer.Character["Head"]
-for _, child in ipairs(eyeEmit:GetChildren()) do
-    if child:IsA("ParticleEmitter") then
-        child:Emit(20)
-    end
-end
 
 -- Second burst of effects on the Left Arm
 local armBurst3 = game.ReplicatedStorage.Resources.FiveSeasonsFX["CharFX"].ArmBurst.Attachment:Clone()
@@ -161,9 +152,18 @@ for _, child in ipairs(armFX2:GetChildren()) do
     end
 end
 
+wait(1.3)
+-- Eye effect on the Head
+local eyeEmit = game.ReplicatedStorage.Resources.FiveSeasonsFX["CharFX"].EyeEmit:Clone()
+eyeEmit.Parent = game.Players.LocalPlayer.Character["Head"]
+for _, child in ipairs(eyeEmit:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(45)
+    end
+end
 
 --KJ FIVESEASONS TPTHING SOUND
-wait(2.9)
+wait(2.5)
 local function playSound()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://18461671633"
@@ -174,19 +174,16 @@ end
 
 playSound()
 
-
-wait(5.4)
+wait(5.3)
 -- Destroy the second set of effects
 armBurst3:Destroy()
 armBurst4:Destroy()
 armFX2:Destroy()
 
-
-
 wait(6)
 -- Summon Fists
 local Fist = game.ReplicatedStorage.Resources.FiveSeasonsFX["FistsModelMirrored"].Fists:Clone()
-Fist.Parent = player.Character["Left Arm"]
+Fist.Parent = player.Character["HumanoidRootPart"]
 for _, child in ipairs(Fist:GetChildren()) do
     if child:IsA("ParticleEmitter") then
         child:Emit(5)
