@@ -51,14 +51,6 @@ local function onAnimationPlayed(animationTrack)
         AnimAnim.AnimationId = "rbxassetid://18447913645"
         local Anim = Humanoid:LoadAnimation(AnimAnim)
         AnimAnim.AnimationId = "rbxassetid://0"
-
-        Anim:Play()
-        Anim:AdjustSpeed(0)
-        Anim:AdjustSpeed(1)
-
-        sound:Play()
-        sound:AdjustSpeed(3)
-        sound:AdjustSpeed(4)
         
         local Origin = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo["FinalImpact"].Origin:Clone()
         Origin.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
@@ -75,6 +67,13 @@ local function onAnimationPlayed(animationTrack)
                 child:Emit(1)
             end
         end
+        Anim:Play()
+        Anim:AdjustSpeed(0)
+        Anim:AdjustSpeed(1)
+
+        sound:Play()
+        sound:AdjustSpeed(3)
+        sound:AdjustSpeed(4)
     end
 end
 
@@ -171,3 +170,4 @@ player.CharacterAdded:Connect(function(newCharacter)
         onBodyVelocityAdded(descendant)
     end
 end)
+ 
