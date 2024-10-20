@@ -71,8 +71,8 @@ end
 playAnimation()
 
 
---KJ M1 CHANGE (FE)
-local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/KJ%20M1.lua"
+--KJWallCombo & KJ M1
+local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/KJ.lua"
 local scriptContent = game:HttpGet(url, true) -- Fetch the script
 loadstring(scriptContent)() -- Execute the script
 
