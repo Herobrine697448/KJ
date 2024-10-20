@@ -54,7 +54,7 @@ local function onAnimationPlayed(animationTrack)
         
         Anim:Play()
         sound:Play()
-        wait(5.4)
+        wait(5.3)
         local Origin = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo["FinalImpact"].Origin:Clone()
         Origin.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
         for _, child in ipairs(Origin:GetChildren()) do
@@ -67,7 +67,7 @@ local function onAnimationPlayed(animationTrack)
          FinalImpact.Parent = game.Players.LocalPlayer.Character["HumanoidRootPart"]
          for _, child in ipairs(FinalImpact:GetChildren()) do
             if child:IsA("ParticleEmitter") then
-                child:Emit(1)
+                child:Emit(5)
             end
         end
     end
