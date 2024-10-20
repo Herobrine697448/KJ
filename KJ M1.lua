@@ -60,12 +60,12 @@ local function onAnimationPlayed(animationTrack)
             end
          end
 
-local FinalImpact = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo["FinalImpact"].Attachment:Clone()
-FinalImpact.Parent = game.Players.LocalPlayer.Character["Left Arm"]
-for _, child in ipairs(FinalImpact:GetChildren()) do
-    if child:IsA("ParticleEmitter") then
-        child:Emit(1)
-    end
+         local FinalImpact = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo["FinalImpact"].Attachment:Clone()
+         FinalImpact.Parent = game.Players.LocalPlayer.Character["Left Arm"]
+         for _, child in ipairs(FinalImpact:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(1)
+            end
         end
 
         Anim:Play()
