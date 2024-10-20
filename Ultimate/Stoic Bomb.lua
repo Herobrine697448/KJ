@@ -59,7 +59,7 @@ local HEAT = game.ReplicatedStorage.Resources.StoicBomb.HEAT["Part"].Attachment:
 HEAT.Parent = game.Players.LocalPlayer.Character["Torso"]
 for _, child in ipairs(HEAT:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(5)
+        child:Emit(20)
     end
 end
 wait(1)
