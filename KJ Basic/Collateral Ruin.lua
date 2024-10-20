@@ -9,7 +9,6 @@ local playAnim = humanoid:LoadAnimation(anim)
 anim.AnimationId = "rbxassetid://0"
 playAnim:Play()
 
-
 wait(1)
 
 
