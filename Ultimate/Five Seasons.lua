@@ -63,7 +63,7 @@ positionOnFloor(clonedJumpFX)
 
 
 --FIVE SEASONS ANIMATION START
-wait(0.1)
+wait(0.2)
 local anim = Instance.new("Animation")
 anim.AnimationId = "rbxassetid://18462892217"
 local playAnim = humanoid:LoadAnimation(anim)
@@ -174,13 +174,19 @@ end
 
 playSound()
 
-wait(5.3)
+wait(1)
 -- Destroy the second set of effects
 armBurst3:Destroy()
 armBurst4:Destroy()
 armFX2:Destroy()
 
-wait(6)
+--FIVE SEASONS FINISH & SUMMON FISTS
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://18462894593"
+local playAnim = humanoid:LoadAnimation(anim)
+anim.AnimationId = "rbxassetid://0"
+playAnim:Play()
+
 -- Summon Fists
 local Fist = game.ReplicatedStorage.Resources.FiveSeasonsFX["FistsModelMirrored"].Fists:Clone()
 Fist.Parent = player.Character["HumanoidRootPart"]
