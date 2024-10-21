@@ -2,7 +2,6 @@
         local TS = game:GetService("TweenService")
         local RunService = game:GetService("RunService")
         
-        local FinalDamage = 75
         local sped = 200
         local candash = true
         local hit = 0
@@ -41,7 +40,7 @@
         
         -- Create a new Sound instance
         local sound = Instance.new("Sound")
-        sound.Name = "Dropkick_Miss"
+        sound.Name = "Unhit_Dropkick"
         sound.SoundId = "rbxassetid://" .. soundId
         sound.Volume = 1
         sound.Pitch = 1.0 -- Pitch set to 1.0
