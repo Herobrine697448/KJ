@@ -1,6 +1,5 @@
 local TweenS = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
-
 local speed = 100
 local humanoid = Character:WaitForChild("Humanoid")
 local move = Instance.new("BodyVelocity", RootPart)
