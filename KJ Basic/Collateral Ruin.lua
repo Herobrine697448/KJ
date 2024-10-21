@@ -64,39 +64,6 @@ playAnim:AdjustSpeed(1)
 local player = game.Players.LocalPlayer
 local playerCharacter = player.Character or player.CharacterAdded:Wait()
 
-local replicatedStorage = game:GetService("ReplicatedStorage")
-local resourcesFolder = replicatedStorage:WaitForChild("Resources")
-local kjEffectsFolder = resourcesFolder:WaitForChild("KJEffects")
-local thingNearOne = kjEffectsFolder:WaitForChild("SpinnerDownMesh")
-local mesh = thingNearOne:WaitForChild("Mesh")
-
-if mesh then
-    local part = Instance.new("Part")
-    part.Size = Vector3.new(1, 1, 1)
-    part.Anchored = true
-    part.CanCollide = false
-    part.Transparency = 1  -- Set the part's transparency
-    part.Parent = game.Workspace
-
-    local meshClone = mesh:Clone()
-    meshClone.Parent = part
-
-    local decal = Instance.new("Decal")
-    decal.Texture = "rbxassetid://9572542664"
-    decal.Face = Enum.NormalId.Front
-    decal.Parent = part
-
-    local humanoidRootPart = playerCharacter:WaitForChild("HumanoidRootPart")
-    local offset = Vector3.new(0, 5, 0)
-    part.CFrame = CFrame.new(humanoidRootPart.Position + offset) * CFrame.Angles(math.rad(-2000), 0, 190)
-
-    wait(0.3)
-    part:Destroy()
-else
-    warn("Mesh not found inside thingNearOne.")
-end
-
-
 local boom1 = game.ReplicatedStorage.Resources.KJEffects["SpinningSmoke"].Smoke:Clone()
 boom1.Parent = game.Players.LocalPlayer.Character["Torso"]
     for _, child in ipairs(boom1:GetChildren()) do
