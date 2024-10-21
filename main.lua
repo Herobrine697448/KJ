@@ -195,7 +195,7 @@ end)
 
 --COLLATERAL RUIN CODE
 local ToolName = "Collateral Ruin"
-local CooldownLength = 3
+local CooldownLength = 24
 local ToolSlot = "3"
 
 local function ToolCode()
