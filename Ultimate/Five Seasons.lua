@@ -86,7 +86,7 @@ local function playSound()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://18460952794"
     sound.Parent = character
-    sound.Volume = 0.2
+    sound.Volume = 0.8
     sound:Play()
 end
 
