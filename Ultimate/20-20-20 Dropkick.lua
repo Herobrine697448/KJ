@@ -90,10 +90,8 @@ local Workspace = game:GetService("Workspace")
                 
                 -- Run the followPlayer function every frame
                 game:GetService("RunService").RenderStepped:Connect(followPlayer)
-            else
-                warn("Part thespeedthingunderultik not found inside speedlinesandstuff.")
-            end
         end
+   end
         
         -- Call the waitForPart function
         waitForPart()
