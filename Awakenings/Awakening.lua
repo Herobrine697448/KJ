@@ -31,24 +31,37 @@ local playAnim = humanoid:LoadAnimation(anim)
 anim.AnimationId = "rbxassetid://0"
 playAnim:Play()
 
+
+--AWAKENING VFX
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humRp = character:WaitForChild("HumanoidRootPart")
+
 local fine = game.ReplicatedStorage.Resources.KJEffects["fine...1"].EnableBatch2:Clone()
-fine.Parent = game.Players.LocalPlayer.Character["Torso"]
+fine.Parent = character["Torso"]
 for _, child in ipairs(fine:GetChildren()) do
     if child:IsA("ParticleEmitter") then
         child:Emit(25)
     end
 end
 
-local fine3 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"].EmitBatch3:Clone()
-fine3.Parent = game.Players.LocalPlayer.Character["Torso"]
-for _, child in ipairs(fine3:GetChildren()) do
-    if child:IsA("ParticleEmitter") then
-        child:Emit(1)
+-- Create and configure the boom effect
+local boom = game.ReplicatedStorage.Resources.KJEffects["fine...Emit"]:Clone()
+boom.Parent = workspace
+boom.CanCollide = false
+boom.CFrame = humRp.CFrame * CFrame.new(0, -0.65, 0)  -- Set the position of the boom effect
+
+-- Emit particles from the boom effect
+delay(0.16, function()
+    for _, Particles in pairs(boom:GetDescendants()) do
+        if Particles:IsA("ParticleEmitter") then
+            Particles:Emit(Particles:GetAttribute("EmitCount"))
+        end
     end
-end
+end)
 
 local red = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD1:Clone()
-red.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+red.Parent = character["Right Leg"]
 for _, child in ipairs(red:GetChildren()) do
     if child:IsA("ParticleEmitter") then
         child:Emit(1)
@@ -56,7 +69,7 @@ for _, child in ipairs(red:GetChildren()) do
 end
 
 local red2 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD2:Clone()
-red2.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+red2.Parent = character["Left Leg"]
 for _, child in ipairs(red2:GetChildren()) do
     if child:IsA("ParticleEmitter") then
         child:Emit(1)
@@ -64,7 +77,7 @@ for _, child in ipairs(red2:GetChildren()) do
 end
 
 local red3 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD3:Clone()
-red3.Parent = game.Players.LocalPlayer.Character["Left Leg"]
+red3.Parent = character["Left Leg"]
 for _, child in ipairs(red3:GetChildren()) do
     if child:IsA("ParticleEmitter") then
         child:Emit(20)
@@ -72,7 +85,7 @@ for _, child in ipairs(red3:GetChildren()) do
 end
 
 local red4 = game.ReplicatedStorage.Resources.KJEffects["fine...1"].REDDDD4:Clone()
-red4.Parent = game.Players.LocalPlayer.Character["Right Leg"]
+red4.Parent = character["Right Leg"]
 for _, child in ipairs(red4:GetChildren()) do
     if child:IsA("ParticleEmitter") then
         child:Emit(20)
@@ -86,9 +99,10 @@ red:Destroy()
 red2:Destroy()
 red3:Destroy()
 red4:Destroy()
+boom:Destroy() -- Ensure to destroy the boom effect after use
 
 local fine2 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"].EmitBatch1:Clone()
-fine2.Parent = game.Players.LocalPlayer.Character["Right Arm"]
+fine2.Parent = character["Right Arm"]
 for _, child in ipairs(fine2:GetChildren()) do
     if child:IsA("ParticleEmitter") then
         child:Emit(20)
