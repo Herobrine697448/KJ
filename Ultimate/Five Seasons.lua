@@ -75,11 +75,24 @@ local function playSound()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://18460863844"
     sound.Parent = character
-    sound.Volume = 4
+    sound.Volume = 2
     sound:Play()
 end
 
 playSound()
+
+--KJ FIVE SEASONS MUSIC VARIANT 1
+local function playSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://18460952794"
+    sound.Parent = character
+    sound.Volume = 0.2
+    sound:Play()
+end
+
+playSound() 
+
+
 
 --KJ TALK
 wait(1.4)
@@ -116,7 +129,7 @@ local armFX1 = game.ReplicatedStorage.Resources.FiveSeasonsFX["CharFX"].ArmFX:Cl
 armFX1.Parent = game.Players.LocalPlayer.Character["Left Arm"]
 for _, child in ipairs(armFX1:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(1)
+        child:Emit(20)
     end
 end
 
@@ -148,7 +161,7 @@ local armFX2 = game.ReplicatedStorage.Resources.FiveSeasonsFX["CharFX"].ArmFX:Cl
 armFX2.Parent = game.Players.LocalPlayer.Character["Left Arm"]
 for _, child in ipairs(armFX2:GetChildren()) do
     if child:IsA("ParticleEmitter") then
-        child:Emit(1)
+        child:Emit(20)
     end
 end
 
