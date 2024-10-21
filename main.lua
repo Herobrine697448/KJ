@@ -79,67 +79,175 @@ loadstring(scriptContent)() -- Execute the script
 
 
 --RAVAGE CODE
--- Create the tool
-local tool = Instance.new("Tool")
-tool.Name = "Ravage"  -- Updated tool name
-tool.RequiresHandle = false  -- No handle required
- 
--- Insert the tool into the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
- 
--- Function to execute when the tool is activated
-local function onActivated()
+local ToolName = "Ravage"
+local CooldownLength = 18
+local ToolSlot = "1"
+
+local function ToolCode()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/KJ%20Basic/Ravage.lua"))()
+    delay(0, function() end)
 end
- 
--- Connect the activation function to the tool's Activated event
-tool.Activated:Connect(onActivated)
- 
--- Add the tool to the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
+
+local player = game.Players.LocalPlayer
+local tool = Instance.new("Tool")
+tool.Name = ToolName
+tool.RequiresHandle = false
+tool.Parent = player.Backpack
+
+local debounce = false
+
+tool.Equipped:Connect(function()
+    if not debounce then
+        debounce = true
+
+        local players = game:GetService("Players")
+        local player = players.LocalPlayer
+        local character = player.Character
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid:UnequipTools()
+        end
+
+        delay(CooldownLength, function()
+            debounce = false
+        end)
+
+        local hotbar = player.PlayerGui.Hotbar.Backpack.Hotbar[ToolSlot]
+        local cooldown = player.PlayerGui.Hotbar.Backpack.LocalScript.Cooldown:Clone()
+
+        cooldown.Parent = hotbar
+
+        local tweenService = game:GetService("TweenService")
+        local tweenInfo = TweenInfo.new(CooldownLength, Enum.EasingStyle.Linear)
+        local tweenGoal = {Size = UDim2.new(cooldown.Size.X.Scale, cooldown.Size.X.Offset, 0, 0)}
+
+        local tween = tweenService:Create(cooldown, tweenInfo, tweenGoal)
+        tween:Play()
+
+        tween.Completed:Connect(function()
+            cooldown:Destroy()
+        end)
+
+        delay(0, function()
+            ToolCode()
+        end)
+    end
+end)
 
 
 
 --SWIFT SWEEP CODE
--- Create the tool
-local tool = Instance.new("Tool")
-tool.Name = "Swift Sweep"  -- Updated tool name
-tool.RequiresHandle = false  -- No handle required
- 
--- Insert the tool into the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
- 
--- Function to execute when the tool is activated
-local function onActivated()
+local ToolName = "Swift Sweep"
+local CooldownLength = 16
+local ToolSlot = "2"
+
+local function ToolCode()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/KJ%20Basic/Swift%20Sweep.lua"))()
+    delay(0, function() end)
 end
- 
--- Connect the activation function to the tool's Activated event
-tool.Activated:Connect(onActivated)
- 
--- Add the tool to the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
+
+local player = game.Players.LocalPlayer
+local tool = Instance.new("Tool")
+tool.Name = ToolName
+tool.RequiresHandle = false
+tool.Parent = player.Backpack
+
+local debounce = false
+
+tool.Equipped:Connect(function()
+    if not debounce then
+        debounce = true
+
+        local players = game:GetService("Players")
+        local player = players.LocalPlayer
+        local character = player.Character
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid:UnequipTools()
+        end
+
+        delay(CooldownLength, function()
+            debounce = false
+        end)
+
+        local hotbar = player.PlayerGui.Hotbar.Backpack.Hotbar[ToolSlot]
+        local cooldown = player.PlayerGui.Hotbar.Backpack.LocalScript.Cooldown:Clone()
+
+        cooldown.Parent = hotbar
+
+        local tweenService = game:GetService("TweenService")
+        local tweenInfo = TweenInfo.new(CooldownLength, Enum.EasingStyle.Linear)
+        local tweenGoal = {Size = UDim2.new(cooldown.Size.X.Scale, cooldown.Size.X.Offset, 0, 0)}
+
+        local tween = tweenService:Create(cooldown, tweenInfo, tweenGoal)
+        tween:Play()
+
+        tween.Completed:Connect(function()
+            cooldown:Destroy()
+        end)
+
+        delay(0, function()
+            ToolCode()
+        end)
+    end
+end)
 
 
 --COLLATERAL RUIN CODE
--- Create the tool
-local tool = Instance.new("Tool")
-tool.Name = "Collateral Ruin"  -- Updated tool name
-tool.RequiresHandle = false  -- No handle required
- 
--- Insert the tool into the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
- 
--- Function to execute when the tool is activated
-local function onActivated()
+local ToolName = "Collateral Ruin"
+local CooldownLength = 3
+local ToolSlot = "3"
+
+local function ToolCode()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/KJ%20Basic/Collateral%20Ruin.lua"))()
+    delay(0, function() end)
 end
- 
--- Connect the activation function to the tool's Activated event
-tool.Activated:Connect(onActivated)
- 
--- Add the tool to the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
+
+local player = game.Players.LocalPlayer
+local tool = Instance.new("Tool")
+tool.Name = ToolName
+tool.RequiresHandle = false
+tool.Parent = player.Backpack
+
+local debounce = false
+
+tool.Equipped:Connect(function()
+    if not debounce then
+        debounce = true
+
+        local players = game:GetService("Players")
+        local player = players.LocalPlayer
+        local character = player.Character
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid:UnequipTools()
+        end
+
+        delay(CooldownLength, function()
+            debounce = false
+        end)
+
+        local hotbar = player.PlayerGui.Hotbar.Backpack.Hotbar[ToolSlot]
+        local cooldown = player.PlayerGui.Hotbar.Backpack.LocalScript.Cooldown:Clone()
+
+        cooldown.Parent = hotbar
+
+        local tweenService = game:GetService("TweenService")
+        local tweenInfo = TweenInfo.new(CooldownLength, Enum.EasingStyle.Linear)
+        local tweenGoal = {Size = UDim2.new(cooldown.Size.X.Scale, cooldown.Size.X.Offset, 0, 0)}
+
+        local tween = tweenService:Create(cooldown, tweenInfo, tweenGoal)
+        tween:Play()
+
+        tween.Completed:Connect(function()
+            cooldown:Destroy()
+        end)
+
+        delay(0, function()
+            ToolCode()
+        end)
+    end
+end)
 
 
 local Tool = Instance.new("Tool")
