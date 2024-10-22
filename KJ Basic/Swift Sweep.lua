@@ -12,11 +12,11 @@ playAnim2:Play()
 local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://16944636115"
 sound.Parent = player.Character.HumanoidRootPart
-sound.Volume = 3
+sound.Volume = 2
 
 local hitSound = Instance.new("Sound")
 hitSound.SoundId = "rbxassetid://16944654440"
-hitSound.Volume = 3
+hitSound.Volume = 2
 
 local function applyDamageToNearestTarget()
     local closestTarget = nil
@@ -63,11 +63,6 @@ local function applyDamageToNearestTarget()
 
     if not sound.IsPlaying then
         sound:Play()
-    end
-end
-
-applyDamageToNearestTarget() end
-        end
     end
 end
 
