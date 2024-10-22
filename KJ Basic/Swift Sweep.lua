@@ -1,31 +1,22 @@
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 10
 local player = game.Players.LocalPlayer
-repeat wait() until player.Character.Humanoid
+repeat wait() until player.Character and player.Character:FindFirstChild("Humanoid")
 local humanoid = player.Character.Humanoid
-local character = player.Character or player.CharacterAdded:Wait()
-local UserInputService = game:GetService("UserInputService")
+
 local anim2 = Instance.new("Animation")
 anim2.AnimationId = "rbxassetid://16944345619"
 local playAnim2 = humanoid:LoadAnimation(anim2)
 anim2.AnimationId = "rbxassetid://0"
 playAnim2:Play()
+
 local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://16944636115"
-sound.Parent = character
+sound.Parent = player.Character.HumanoidRootPart
 sound.Volume = 3
-sound:Play()
-wait(1)
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 
-local function enableParticleEmitters(parent)
-    for _, descendant in ipairs(parent:GetDescendants()) do
-        if descendant:IsA("ParticleEmitter") then
-            descendant.Enabled = true
-        end
-    end
-end
-
---PARTILE EMITTERS & EFFECTS
+local hitSound = Instance.new("Sound")
+hitSound.SoundId = "rbxassetid://16944654440"
+hitSound.Volume = 3
 
 local function applyDamageToNearestTarget()
     local closestTarget = nil
@@ -61,7 +52,21 @@ local function applyDamageToNearestTarget()
                 hitAnim.AnimationId = "rbxassetid://18715930149"
                 local playHitAnim = targetAnimator:LoadAnimation(hitAnim)
                 playHitAnim:Play()
+
+                hitSound.Parent = closestTarget.HumanoidRootPart
+                hitSound:Play()
+                sound:Stop()
+                return
             end
+        end
+    end
+
+    if not sound.IsPlaying then
+        sound:Play()
+    end
+end
+
+applyDamageToNearestTarget() end
         end
     end
 end
