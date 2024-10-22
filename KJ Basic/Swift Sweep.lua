@@ -20,7 +20,7 @@ hitSound.Volume = 2
 
 local function applyDamageToNearestTarget()
     local closestTarget = nil
-    local closestDistance = 4
+    local closestDistance = 5
 
     for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
         if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
