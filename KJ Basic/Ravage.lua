@@ -106,7 +106,7 @@ local function playHitAnimation(target)
     hit1.Parent = character["Left Arm"]
     for _, child in ipairs(hit1:GetChildren()) do
         if child:IsA("ParticleEmitter") then
-            child:Emit(1)
+            child:Emit(10)
         end
     end
 
@@ -118,7 +118,7 @@ local function playHitAnimation(target)
     hit2.Parent = character["Right Arm"]
     for _, child in ipairs(hit2:GetChildren()) do
         if child:IsA("ParticleEmitter") then
-            child:Emit(1)
+            child:Emit(10)
         end
     end
 
@@ -137,10 +137,10 @@ local function playHitAnimation(target)
 
     -- Final kick effect on Torso
     local lastKickEffect = ReplicatedStorage.Resources.KJEffects["lastkick"].Attachment:Clone()
-    lastKickEffect.Parent = character["Torso"]
+    lastKickEffect.Parent = character["HumanoidRootPart"]
     for _, child in ipairs(lastKickEffect:GetChildren()) do
         if child:IsA("ParticleEmitter") then
-            child:Emit(1)
+            child:Emit(5)
         end
     end
 
