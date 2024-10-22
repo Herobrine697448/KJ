@@ -60,30 +60,14 @@ local function playHitAnimation(target)
 
     wait(1)
     
-    -- Replace old particle effects with new ones
-    
-    -- Check for Resources folder in ReplicatedStorage
     local resourcesFolder = ReplicatedStorage:WaitForChild("Resources")
-    
-    -- Check for KJEffects folder inside Resources
     local kjEffectsFolder = resourcesFolder:WaitForChild("KJEffects")
-    
-    -- Check for speedlinesandstuff part inside KJEffects
     local speedlinesandstuffPart = kjEffectsFolder:WaitForChild("barrage")
-    
-    -- Duplicate the speedlinesandstuff part
     local speedlinesandstuffClone = speedlinesandstuffPart:Clone()
-    
-    -- Calculate the desired CFrame using the player's torso position
     local desiredCFrame = CFrame.new(character["Left Arm"].Position)
-    
-    -- Set the desired CFrame for the clone
     speedlinesandstuffClone.CFrame = desiredCFrame
-    
-    -- Put the duplicate in Workspace
     speedlinesandstuffClone.Parent = Workspace
     
-    -- Function to enable all ParticleEmitters
     local function enableParticleEmitters(parent)
         for _, descendant in ipairs(parent:GetDescendants()) do
             if descendant:IsA("ParticleEmitter") then
@@ -92,16 +76,11 @@ local function playHitAnimation(target)
         end
     end
     
-    -- Example usage after your dash effect completes
     spawn(function()
-        -- Simulating end of dash effect
-        wait(1)  -- Adjust the wait time as needed
-    
-        -- Enable all ParticleEmitters inside speedlinesandstuffClone
+        wait(1)
         enableParticleEmitters(speedlinesandstuffClone)
     end)
     
-    -- First set of hit particles on Left Arm
     local hit1 = ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
     hit1.Parent = character["Left Arm"]
     for _, child in ipairs(hit1:GetChildren()) do
@@ -113,7 +92,6 @@ local function playHitAnimation(target)
     wait(2)
     workspace.barrage:Destroy()
 
-    -- Second set of hit particles on Right Arm
     local hit2 = ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
     hit2.Parent = character["Right Arm"]
     for _, child in ipairs(hit2:GetChildren()) do
@@ -124,7 +102,6 @@ local function playHitAnimation(target)
 
     wait(1)
 
-    -- Wind effect around the HumanoidRootPart
     local windEffect = ReplicatedStorage.Resources.KJEffects["RUNAROUNDWIND"].RUNAROUNDWIND:Clone()
     windEffect.Parent = character["HumanoidRootPart"]
     for _, child in ipairs(windEffect:GetChildren()) do
@@ -135,7 +112,6 @@ local function playHitAnimation(target)
 
     wait(1)
 
-    -- Final kick effect on Torso
     local lastKickEffect = ReplicatedStorage.Resources.KJEffects["lastkick"].Attachment:Clone()
     lastKickEffect.Parent = character["HumanoidRootPart"]
     for _, child in ipairs(lastKickEffect:GetChildren()) do
@@ -146,6 +122,7 @@ local function playHitAnimation(target)
 
     wait(5)
     debounce = false
+    animationPlayed = false
     character.Humanoid.WalkSpeed = 16
     character.Humanoid.AutoRotate = true 
 end
@@ -156,7 +133,6 @@ local function detectNearbyTarget()
     local closestTarget = nil
     local closestDistance = proximityDetectionRadius
 
-    -- Check for nearby players
     for _, p in ipairs(game.Players:GetPlayers()) do
         if p ~= player and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
             local distance = (character.HumanoidRootPart.Position - p.Character.HumanoidRootPart.Position).Magnitude
@@ -167,7 +143,6 @@ local function detectNearbyTarget()
         end
     end
 
-    -- Check for Weakest Dummy in Workspace.Live
     local dummy = game.Workspace.Live:FindFirstChild("Weakest Dummy")
     if dummy and dummy:FindFirstChild("HumanoidRootPart") then
         local distance = (character.HumanoidRootPart.Position - dummy.HumanoidRootPart.Position).Magnitude
