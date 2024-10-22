@@ -22,7 +22,7 @@ playAnim:AdjustSpeed(0.3)
 wait(0.3)
 playAnim:AdjustSpeed(1)
 
-local function playHitAnimation(targetPlayer)
+local function playHitAnimation(target)
     if debounce or animationPlayed then return end
     debounce = true
     animationPlayed = true
@@ -49,9 +49,9 @@ local function playHitAnimation(targetPlayer)
 
     character.Humanoid.WalkSpeed = 0
     character.Humanoid.AutoRotate = false 
-    character:WaitForChild("HumanoidRootPart").CFrame = targetPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -3) * CFrame.Angles(0, math.pi, 0)
+    character:WaitForChild("HumanoidRootPart").CFrame = target.HumanoidRootPart.CFrame * CFrame.new(0, 0, -3) * CFrame.Angles(0, math.pi, 0)
 
-    local targetHumanoid = targetPlayer.Character:WaitForChild("Humanoid")
+    local targetHumanoid = target:WaitForChild("Humanoid")
     local targetAnimator = targetHumanoid:WaitForChild("Animator")
     local targetAnim = Instance.new("Animation")
     targetAnim.AnimationId = "rbxassetid://16945557433"
@@ -95,7 +95,7 @@ local function playHitAnimation(targetPlayer)
     windEffect.Parent = character["HumanoidRootPart"]
     for _, child in ipairs(windEffect:GetChildren()) do
         if child:IsA("ParticleEmitter") then
-            child:Emit(20)
+            child:Emit(5)
         end
     end
 
@@ -116,22 +116,37 @@ end
 
 local proximityDetectionRadius = 10
 
-local function detectNearbyPlayer()
+local function detectNearbyTarget()
+    local closestTarget = nil
+    local closestDistance = proximityDetectionRadius
+
+    -- Check for nearby players
     for _, p in ipairs(game.Players:GetPlayers()) do
         if p ~= player and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
             local distance = (character.HumanoidRootPart.Position - p.Character.HumanoidRootPart.Position).Magnitude
-            if distance <= proximityDetectionRadius then
-                return p
+            if distance <= closestDistance then
+                closestTarget = p.Character
+                closestDistance = distance
             end
         end
     end
-    return nil
+
+    -- Check for Weakest Dummy in Workspace.Live
+    local dummy = game.Workspace.Live:FindFirstChild("Weakest Dummy")
+    if dummy and dummy:FindFirstChild("HumanoidRootPart") then
+        local distance = (character.HumanoidRootPart.Position - dummy.HumanoidRootPart.Position).Magnitude
+        if distance <= closestDistance then
+            closestTarget = dummy
+        end
+    end
+
+    return closestTarget
 end
 
 while true do
-    local targetPlayer = detectNearbyPlayer()
-    if targetPlayer and not animationPlayed then
-        playHitAnimation(targetPlayer)
+    local target = detectNearbyTarget()
+    if target and not animationPlayed then
+        playHitAnimation(target)
     end
     wait(0.1)
 end
