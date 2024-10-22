@@ -22,9 +22,10 @@ playAnim:AdjustSpeed(0.3)
 wait(0.3)
 playAnim:AdjustSpeed(1)
 
+animationPlayed = false
+
 local function playHitAnimation(target)
-    if debounce then return end
-    debounce = true
+    animationPlayed = true
 
     anim.AnimationId = "rbxassetid://16945550029"
     local playAnim = humanoid:LoadAnimation(anim)
