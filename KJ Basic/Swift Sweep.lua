@@ -49,7 +49,7 @@ local function applyDamageToNearestTarget()
             local targetAnimator = humanoid:FindFirstChild("Animator")
             if targetAnimator then
                 local hitAnim = Instance.new("Animation")
-                hitAnim.AnimationId = "rbxassetid://18715930149"
+                hitAnim.AnimationId = "rbxassetid://10471478869"
                 local playHitAnim = targetAnimator:LoadAnimation(hitAnim)
                 playHitAnim:Play()
 
