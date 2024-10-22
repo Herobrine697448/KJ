@@ -1389,8 +1389,6 @@
             candash = false
             hitbox:Destroy()
             Humanoid.WalkSpeed = 16
-            workspace.Dropkick_SFX:Destroy()
-            workspace.Dropkick_Miss:Destroy()
             -- TÃƒÂ¼m 'speedlines' adÃ„Â±ndaki parÃƒÂ§alarÃ„Â± bulup silen script
         local targetName = "thespeedthingunderultik"
         
@@ -1415,11 +1413,9 @@
         end
         local targetName = "speedlinesandstuff"
         
-        -- Workspace'teki tÃƒÂ¼m objeleri dÃƒÂ¶ner
         for _, obj in pairs(workspace:GetDescendants()) do
             -- EÃ„Å¸er objenin adÃ„Â± 'speedlines' ise
             if obj:IsA("BasePart") and obj.Name == targetName then
-                -- Objeyi sil
                 obj:Destroy()
             end
         end
