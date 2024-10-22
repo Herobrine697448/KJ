@@ -125,7 +125,6 @@ end
 
 
 
---ULTIMATE MOVES
 --STOIC BOMB
 local tool = Instance.new("Tool")
 tool.Name = "Stoic Bomb"  -- Updated tool name
@@ -168,21 +167,57 @@ tool.Parent = game.Players.LocalPlayer.Backpack
 
 
 --FIVE SEASONS
-local tool = Instance.new("Tool")
-tool.Name = "Five Seasons"  -- Updated tool name
-tool.RequiresHandle = false  -- No handle required
- 
--- Insert the tool into the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
- 
--- Function to execute when the tool is activated
-local function onActivated()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ultimate/Five%20Seasons.lua"))()
-end
- 
--- Connect the activation function to the tool's Activated event
-tool.Activated:Connect(onActivated)
- 
--- Add the tool to the player's backpack
-tool.Parent = game.Players.LocalPlayer.Backpack
+local ToolName = "Five Seasons"
+local CooldownLength = 999
+local ToolSlot = "3"
 
+local function ToolCode()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Ultimate/Five%20Seasons.lua"))()
+    delay(0, function() end)
+end
+
+local player = game.Players.LocalPlayer
+local tool = Instance.new("Tool")
+tool.Name = ToolName
+tool.RequiresHandle = false
+tool.Parent = player.Backpack
+
+local debounce = false
+
+tool.Equipped:Connect(function()
+    if not debounce then
+        debounce = true
+
+        local players = game:GetService("Players")
+        local player = players.LocalPlayer
+        local character = player.Character
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid:UnequipTools()
+        end
+
+        delay(CooldownLength, function()
+            debounce = false
+        end)
+
+        local hotbar = player.PlayerGui.Hotbar.Backpack.Hotbar[ToolSlot]
+        local cooldown = player.PlayerGui.Hotbar.Backpack.LocalScript.Cooldown:Clone()
+
+        cooldown.Parent = hotbar
+
+        local tweenService = game:GetService("TweenService")
+        local tweenInfo = TweenInfo.new(CooldownLength, Enum.EasingStyle.Linear)
+        local tweenGoal = {Size = UDim2.new(cooldown.Size.X.Scale, cooldown.Size.X.Offset, 0, 0)}
+
+        local tween = tweenService:Create(cooldown, tweenInfo, tweenGoal)
+        tween:Play()
+
+        tween.Completed:Connect(function()
+            cooldown:Destroy()
+        end)
+
+        delay(0, function()
+            ToolCode()
+        end)
+    end
+end)
