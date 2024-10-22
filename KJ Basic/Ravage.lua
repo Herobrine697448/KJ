@@ -2,7 +2,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
 local humanoid = player.Character.Humanoid
-local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
 debounce = false
 local anim = Instance.new("Animation")
@@ -22,7 +22,7 @@ playAnim:AdjustSpeed(0.3)
 wait(0.3)
 playAnim:AdjustSpeed(1)
 
-local function playHitAnimation()
+local function playHitAnimation(targetPlayer)
     if debounce or animationPlayed then return end
     debounce = true
     animationPlayed = true
@@ -49,17 +49,16 @@ local function playHitAnimation()
 
     character.Humanoid.WalkSpeed = 0
     character.Humanoid.AutoRotate = false 
-    character:WaitForChild("HumanoidRootPart").CFrame = game.Workspace.Live["Weakest Dummy"].HumanoidRootPart.CFrame * CFrame.new(0, 0, -3) * CFrame.Angles(0, math.pi, 0)
+    character:WaitForChild("HumanoidRootPart").CFrame = targetPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -3) * CFrame.Angles(0, math.pi, 0)
 
-    local dummyHumanoid = game.Workspace.Live["Weakest Dummy"]:WaitForChild("Humanoid")
-    local animator = dummyHumanoid:WaitForChild("Animator")
-    local Anim = Instance.new("Animation")
-    Anim.AnimationId = "rbxassetid://16945557433"
-    local AnimationTrack = animator:LoadAnimation(Anim)
-    AnimationTrack:Play()
-    
+    local targetHumanoid = targetPlayer.Character:WaitForChild("Humanoid")
+    local targetAnimator = targetHumanoid:WaitForChild("Animator")
+    local targetAnim = Instance.new("Animation")
+    targetAnim.AnimationId = "rbxassetid://16945557433"
+    local targetAnimationTrack = targetAnimator:LoadAnimation(targetAnim)
+    targetAnimationTrack:Play()
+
     wait(1)
-
     local resourcesFolder = ReplicatedStorage:WaitForChild("Resources")
     local kjEffectsFolder = resourcesFolder:WaitForChild("KJEffects")
     local speedlinesandstuffPart = kjEffectsFolder:WaitForChild("barrage")
@@ -81,9 +80,9 @@ local function playHitAnimation()
         enableParticleEmitters(speedlinesandstuffClone)
     end)
 
-    local hit1 = game.ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-    hit1.Parent = character["HumanoidRootPart"]
-    for _, child in ipairs(hit1:GetChildren()) do
+    local hitEffect = game.ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
+    hitEffect.Parent = character["HumanoidRootPart"]
+    for _, child in ipairs(hitEffect:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(20)
         end
@@ -92,31 +91,18 @@ local function playHitAnimation()
     wait(2)
     speedlinesandstuffClone:Destroy()
 
-    local hit1 = game.ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-    hit1.Parent = character["HumanoidRootPart"]
-    for _, child in ipairs(hit1:GetChildren()) do
+    local windEffect = game.ReplicatedStorage.Resources.KJEffects["RUNAROUNDWIND"].RUNAROUNDWIND:Clone()
+    windEffect.Parent = character["HumanoidRootPart"]
+    for _, child in ipairs(windEffect:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(20)
         end
     end
 
     wait(1)
-
-    local hit1 = game.ReplicatedStorage.Resources.KJEffects["RUNAROUNDWIND"].RUNAROUNDWIND:Clone()
-    hit1.Parent = character["HumanoidRootPart"]
-    for _, child in ipairs(hit1:GetChildren()) do
-        if child:IsA("ParticleEmitter") then
-            child:Emit(5)
-        end
-    end
-
-    wait(1)
-
-    wait(0.1)
-
-    local hit1 = game.ReplicatedStorage.Resources.KJEffects["lastkick"].Attachment:Clone()
-    hit1.Parent = character["HumanoidRootPart"]
-    for _, child in ipairs(hit1:GetChildren()) do
+    local lastKickEffect = game.ReplicatedStorage.Resources.KJEffects["lastkick"].Attachment:Clone()
+    lastKickEffect.Parent = character["HumanoidRootPart"]
+    for _, child in ipairs(lastKickEffect:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(15)
         end
@@ -130,27 +116,22 @@ end
 
 local proximityDetectionRadius = 10
 
-game.Workspace.Live["Weakest Dummy"].HumanoidRootPart.Touched:Connect(function(hit)
-    if hit.Parent == character then
-        playHitAnimation()
-    end
-end)
-
-while true do
-    local detectedPlayer = false
+local function detectNearbyPlayer()
     for _, p in ipairs(game.Players:GetPlayers()) do
         if p ~= player and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
             local distance = (character.HumanoidRootPart.Position - p.Character.HumanoidRootPart.Position).Magnitude
             if distance <= proximityDetectionRadius then
-                detectedPlayer = true
-                break
+                return p
             end
         end
     end
+    return nil
+end
 
-    if detectedPlayer and not animationPlayed then
-        playHitAnimation()
+while true do
+    local targetPlayer = detectNearbyPlayer()
+    if targetPlayer and not animationPlayed then
+        playHitAnimation(targetPlayer)
     end
-
     wait(0.1)
 end
