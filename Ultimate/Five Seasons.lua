@@ -195,7 +195,7 @@ armFX2:Destroy()
 
 
 wait(2)
---FIVE SEASONS FINISH & EXPLOSION
+-- FIVE SEASONS FINISH & EXPLOSION
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -220,36 +220,50 @@ fiveSeasonsButton.Text = ""
 fiveSeasonsButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 fiveSeasonsButton.Parent = frame
 
-local uiCornerFrame = Instance.new("UICorner")
-uiCornerFrame.CornerRadius = UDim.new(0.5, 0)
-uiCornerFrame.Parent = frame
-
 local uiCornerButton = Instance.new("UICorner")
-uiCornerButton.CornerRadius = UDim.new(0.5, 0)
+uiCornerButton.CornerRadius = UDim.new(0, 50)
 uiCornerButton.Parent = fiveSeasonsButton
 
-local function onActivated()
-    local anim = Instance.new("Animation")
-    anim.AnimationId = "rbxassetid://18462894593" 
-    local playAnim = humanoid:LoadAnimation(anim) 
-    anim.AnimationId = "rbxassetid://0" 
-    playAnim:Play() 
+local playTriggered = false
 
-    wait(3.1)
+local function playEffects()
+    if not playTriggered then
+        playTriggered = true
+        
+        local anim = Instance.new("Animation")
+        anim.AnimationId = "rbxassetid://18462894593" 
+        local playAnim = humanoid:LoadAnimation(anim) 
+        anim.AnimationId = "rbxassetid://0" 
+        playAnim:Play() 
 
-    local Fist = game.ReplicatedStorage.Resources.FiveSeasonsFX["FistsModelMirrored"].Fists:Clone()
-    Fist.Parent = player.Character["HumanoidRootPart"]
-    for _, child in ipairs(Fist:GetChildren()) do
-        if child:IsA("ParticleEmitter") then
-            child:Emit(5)
+        wait(2.7)
+        local FinalImpact = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo["FinalImpact"].Attachment:Clone()
+        FinalImpact.Parent = player.Character["HumanoidRootPart"]
+        for _, child in ipairs(FinalImpact:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(5)
+            end
         end
-    end
 
-    wait(2)
-    Fist:Destroy()
+        local Fist = game.ReplicatedStorage.Resources.FiveSeasonsFX["FistsModelMirrored"].Fists:Clone()
+        Fist.Parent = player.Character["HumanoidRootPart"]
+        for _, child in ipairs(Fist:GetChildren()) do
+            if child:IsA("ParticleEmitter") then
+                child:Emit(5)
+            end
+        end
+        wait(2)
+        Fist:Destroy()
+    end
 end
 
-frame.MouseButton1Click:Connect(onActivated)
+frame.MouseButton1Click:Connect(function()
+    playEffects()
+    screenGui:Destroy()
+end)
 
-wait(6)
+wait(3)
+if not playTriggered then
+    playEffects()
+end
 screenGui:Destroy()
