@@ -22,12 +22,11 @@ local function enableParticleEmitters(parent)
     end
 end
 
---PARTICLE EMITTERS 
+--PARTILE EMITTERS & EFFECTS
 
---Damage Applier
-local function applyDamageToNearestPlayer()
-    local closestPlayer = nil
-    local closestDistance = 5
+local function applyDamageToNearestTarget()
+    local closestTarget = nil
+    local closestDistance = 4
 
     for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
         if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
@@ -35,17 +34,33 @@ local function applyDamageToNearestPlayer()
 
             if distance <= closestDistance then
                 closestDistance = distance
-                closestPlayer = otherPlayer
+                closestTarget = otherPlayer.Character
             end
         end
     end
 
-    if closestPlayer then
-        local humanoid = closestPlayer.Character:FindFirstChild("Humanoid")
+    local dummy = game.Workspace.Live:FindFirstChild("Weakest Dummy")
+    if dummy and dummy:FindFirstChild("HumanoidRootPart") then
+        local distance = (player.Character.HumanoidRootPart.Position - dummy.HumanoidRootPart.Position).Magnitude
+        if distance <= closestDistance then
+            closestTarget = dummy
+        end
+    end
+
+    if closestTarget then
+        local humanoid = closestTarget:FindFirstChild("Humanoid")
         if humanoid then
             humanoid:TakeDamage(math.random(10, 14))
+
+            local targetAnimator = humanoid:FindFirstChild("Animator")
+            if targetAnimator then
+                local hitAnim = Instance.new("Animation")
+                hitAnim.AnimationId = "rbxassetid://16945557433"
+                local playHitAnim = targetAnimator:LoadAnimation(hitAnim)
+                playHitAnim:Play()
+            end
         end
     end
 end
 
-applyDamageToNearestPlayer()
+applyDamageToNearestTarget()
