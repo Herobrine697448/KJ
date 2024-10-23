@@ -4,11 +4,16 @@ local humanoid = player.Character.Humanoid
     
 local anim = Instance.new("Animation")
 anim.AnimationId = "rbxassetid://17325254223"
-    
 local playAnim = humanoid:LoadAnimation(anim)
 anim.AnimationId = "rbxassetid://0"
 playAnim:Play()
 
+
+local sound = Instance.new("Sound")
+sound.SoundId = "rbxassetid://17325303798"
+sound.Parent = character
+sound.Volume = 3
+sound:Play()
 wait(1)
 
 
