@@ -74,6 +74,16 @@ local function onAnimationPlayed(animationTrack)
 end
 
 humanoid.AnimationPlayed:Connect(onAnimationPlayed)
+--END OF KJ WALL COMBO
+
+--KJ M1 & SOUNDS
+local Players = game:GetService("Players")
+
+local player = Players.LocalPlayer
+
+local character = player.Character or player.CharacterAdded:Wait()
+
+local humanoid = character:FindFirstChildOfClass("Humanoid")
 
 local animationIdsToStop = {
     [10469493270] = true,
@@ -89,8 +99,23 @@ local replacementAnimations = {
     ["10469493270"] = "rbxassetid://17325510002",
 }
 
+local soundsToPlay = {
+    [10469493270] = "rbxassetid://17325528583",
+    [10469630950] = "rbxassetid://17325528680",
+    [10469639222] = "rbxassetid://17325528509",
+    [10469643643] = "rbxassetid://17325528401",
+}
+
 local queue = {}
 local isAnimating = false
+
+local function playSound(soundId)
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Volume = 3
+    sound.Parent = character
+    sound:Play()
+end
 
 local function playReplacementAnimation(animationId)
     if isAnimating then
@@ -106,6 +131,8 @@ local function playReplacementAnimation(animationId)
         local Anim = humanoid:LoadAnimation(AnimAnim)
         AnimAnim.AnimationId = "rbxassetid://0"
         Anim:Play()
+
+        playSound(soundsToPlay[animationId]) -- Play sound for the animation
 
         Anim.Stopped:Connect(function()
             isAnimating = false
