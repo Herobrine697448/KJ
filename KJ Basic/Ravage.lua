@@ -23,6 +23,38 @@ wait(0.3)
 playAnim:AdjustSpeed(1)
 
 animationPlayed = false
+soundPlayed = false
+
+local function playHitSound()
+    soundPlayed = true
+    
+    local Sound2 = Instance.new("Sound")
+    Sound2.Parent = character
+    Sound2.SoundId = "rbxassetid://16945517708"
+    Sound2.Volume = 2
+    Sound2:Play()
+    
+    local Sound3 = Instance.new("Sound")
+    Sound3.Parent = character
+    Sound3.SoundId = "rbxassetid://16945593216"
+    Sound3.Volume = 2
+    Sound3:Play()
+    
+    local Sound4 = Instance.new("Sound")
+    Sound4.Parent = character
+    Sound4.SoundId = "rbxassetid://16945691441"
+    Sound4.Volume = 2
+    Sound4:Play()
+    
+    local Sound5 = Instance.new("Sound")
+    Sound5.Parent = character
+    Sound5.SoundId = "rbxassetid://16945723339"
+    Sound5.Volume = 2
+
+    Sound4.Ended:Connect(function()
+            Sound5:Play()
+    end)
+end
 
 local function playHitAnimation(target)
     animationPlayed = true
@@ -31,21 +63,6 @@ local function playHitAnimation(target)
     local playAnim = humanoid:LoadAnimation(anim)
     anim.AnimationId = "rbxassetid://0"
     playAnim:Play()
-
-    local Sound2 = Instance.new("Sound")
-    Sound2.Parent = character
-    Sound2.SoundId = "rbxassetid://16945517708"
-    Sound2:Play()
-    
-    local Sound3 = Instance.new("Sound")
-    Sound3.Parent = character
-    Sound3.SoundId = "rbxassetid://16945593216"
-    Sound3:Play()
-    
-    local Sound4 = Instance.new("Sound")
-    Sound4.Parent = character
-    Sound4.SoundId = "rbxassetid://16945691441"
-    Sound4:Play()
 
     character.Humanoid.WalkSpeed = 0
     character.Humanoid.AutoRotate = false 
@@ -153,9 +170,10 @@ local function detectNearbyTarget()
     return closestTarget
 end
 
-while true do
+if true then
     local target = detectNearbyTarget()
     if target and not animationPlayed then
+        playHitSound()
         playHitAnimation(target)
     end
     wait(0.1)
