@@ -168,7 +168,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
 
 --FIVE SEASONS
 local ToolName = "Five Seasons"
-local CooldownLength = 999
+local CooldownLength = 99999
 local ToolSlot = "3"
 
 local function ToolCode()
