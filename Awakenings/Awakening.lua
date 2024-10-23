@@ -108,6 +108,22 @@ for _, child in ipairs(fine2:GetChildren()) do
         child:Emit(20)
     end
 end
+
+local fine3 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"].EmitBatch2:Clone()
+fine3.Parent = character["Right Leg"]
+for _, child in ipairs(fine3:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
+
+local fine4 = game.ReplicatedStorage.Resources.KJEffects["fine...Emit2"].EmitBatch2:Clone()
+fine4.Parent = character["Left Leg"]
+for _, child in ipairs(fine4:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(1)
+    end
+end
 --AWAKENING ENDED
 
 local player = game.Players.LocalPlayer
