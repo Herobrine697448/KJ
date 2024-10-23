@@ -1,5 +1,5 @@
 local player = game.Players.LocalPlayer
-repeat wait() until player.Character.Humanoid
+repeat wait() until player.Character and player.Character:FindFirstChild("Humanoid")
 local humanoid = player.Character.Humanoid
     
 local anim = Instance.new("Animation")
@@ -8,11 +8,9 @@ local playAnim = humanoid:LoadAnimation(anim)
 anim.AnimationId = "rbxassetid://0"
 playAnim:Play()
 
-
 local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://17325303798"
-sound.Parent = character
-sound.Volume = 3
+sound.Parent = player.Character
 sound:Play()
 wait(1)
 
