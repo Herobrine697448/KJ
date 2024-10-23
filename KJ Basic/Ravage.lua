@@ -106,7 +106,7 @@ local function playHitAnimation(target)
     windEffect.Parent = character["HumanoidRootPart"]
     for _, child in ipairs(windEffect:GetChildren()) do
         if child:IsA("ParticleEmitter") then
-            child:Emit(5)
+            child:Emit(10)
         end
     end
 
