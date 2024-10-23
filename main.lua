@@ -267,33 +267,35 @@ tool.Equipped:Connect(function()
 end)
 
 
-local Tool = Instance.new("Tool")
-Tool.Name = "Awakening"
-Tool.RequiresHandle = false
-Tool.Parent = game.Players.LocalPlayer.Backpack
-
-local player = game.Players.LocalPlayer
-local humanoid = player.Character:WaitForChild("Humanoid")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local humanoid = player.Character and player.Character:WaitForChild("Humanoid")
 
 local function loadAndExecuteScript(url)
-    local scriptContent = game:HttpGet(url)
-    local functionToExecute = loadstring(scriptContent)()
-    if functionToExecute then
-        functionToExecute()
-    end
+    local success, result = pcall(function()
+        return loadstring(game:HttpGet(url))()
+    end)
 end
 
 local function executeAwakening()
-    -- Check if the player is moving
     if humanoid.MoveDirection.Magnitude > 0 then
-        -- Player is moving, execute the alternate awakening
         local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Awakenings/Awakening_1.lua"
         loadAndExecuteScript(url)
     else
-        -- Player is standing still, execute the normal awakening
         local url = "https://raw.githubusercontent.com/Herobrine697448/KJ/refs/heads/main/Awakenings/Awakening.lua"
         loadAndExecuteScript(url)
     end
 end
 
-Tool.Activated:Connect(executeAwakening)
+local function checkForDeathCounter()
+    while true do
+        if player.Backpack:FindFirstChild("Death Counter") then
+            player.Backpack:ClearAllChildren()
+            wait(0.5) -- Add a delay to ensure the backpack is cleared before executing
+            executeAwakening()
+        end
+        wait(0.5)
+    end
+end
+
+checkForDeathCounter()
