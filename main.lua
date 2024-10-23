@@ -53,8 +53,7 @@ local function playAnimation()
     repeat wait() until player.Character and player.Character:FindFirstChild("Humanoid")
     local humanoid = player.Character.Humanoid
     local character = player.Character or player.CharacterAdded:Wait()
-    local UserInputService = game:GetService("UserInputService")
-
+    
     local anim2 = Instance.new("Animation")
     anim2.AnimationId = "rbxassetid://17325160621"
 
@@ -69,6 +68,24 @@ local function playAnimation()
 end
 
 playAnimation()
+
+wait(1.2)
+--KJ PHONE DROP
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local player = game.Players.LocalPlayer
+local resources = ReplicatedStorage:WaitForChild("Resources")
+local phoneModel = resources:FindFirstChild("PhonePhysicsTest")
+
+if phoneModel then
+    local clonedModel = phoneModel:Clone()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    clonedModel:SetPrimaryPartCFrame(humanoidRootPart.CFrame * CFrame.new(0, 0, -1))
+    clonedModel.Parent = workspace
+    wait(3)
+    clonedModel:Destroy()
+end
+--END OF KJ SPAWN
 
 
 --KJWallCombo & KJ M1
