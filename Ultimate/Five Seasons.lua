@@ -176,7 +176,7 @@ for _, child in ipairs(eyeEmit:GetChildren()) do
 end
 
 --KJ FIVESEASONS TPTHING SOUND
-wait(2.5)
+wait(2.3)
 local function playSound()
     local sound = Instance.new("Sound")
     sound.SoundId = "rbxassetid://18461671633"
@@ -205,20 +205,37 @@ humanoid.PlatformStand = true
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = player:WaitForChild("PlayerGui")
 
-local frame = Instance.new("TextButton")
-frame.Size = UDim2.new(0, 100, 0, 100)
-frame.Position = UDim2.new(0.5, -50, 0.5, -50)
-frame.BackgroundTransparency = 1
-frame.Text = ""
-frame.Parent = screenGui
+local ActivateAttack = Instance.new("TextButton")
+ActivateAttack.Size = UDim2.new(0, 125, 0, 125)
+ActivateAttack.Position = UDim2.new(0.5, -50, 0.5, -50)
+ActivateAttack.BackgroundTransparency = 1
+ActivateAttack.Text = ""
+ActivateAttack.Parent = screenGui
 
-local fiveSeasonsButton = Instance.new("TextLabel")
-fiveSeasonsButton.Size = UDim2.new(0, 2, 0, 2)
-fiveSeasonsButton.Position = UDim2.new(0.5, -5, 0.5, -5)
-fiveSeasonsButton.BackgroundTransparency = 0
-fiveSeasonsButton.Text = ""
-fiveSeasonsButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-fiveSeasonsButton.Parent = frame
+--CLONE START
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local fiveSeasonsFX = ReplicatedStorage:WaitForChild("Resources"):WaitForChild("FiveSeasonsFX")
+local fxUiFolder = fiveSeasonsFX:WaitForChild("FXUi"):Clone()
+
+fxUiFolder.Parent = playerGui
+--CLONE ENDED
+
+--DESTROY CLONE FUNCTION
+local function destroyFXUiFolder()
+    local player = game.Players.LocalPlayer
+    local playerGui = player:WaitForChild("PlayerGui")
+    
+    local fxUiFolder = playerGui:FindFirstChild("FXUi")
+    if fxUiFolder then
+        fxUiFolder:Destroy()
+    end
+end
+--DESTROY CLONE FUNCTION END
 
 local uiCornerButton = Instance.new("UICorner")
 uiCornerButton.CornerRadius = UDim.new(0, 50)
@@ -281,7 +298,6 @@ local function playEffects()
             sound:Play()
         end
         playSound()
-        wait(0.6)
 
         local Fist = game.ReplicatedStorage.Resources.FiveSeasonsFX["FistsModelMirrored"].Fists:Clone()
         Fist.Parent = player.Character["HumanoidRootPart"]
@@ -295,14 +311,15 @@ local function playEffects()
     end
 end
 
-frame.MouseButton1Click:Connect(function()
+ActivateAttack.MouseButton1Click:Connect(function()
     playEffects()
+    destroyFXUiFolder()
     screenGui:Destroy()
 end)
 
 wait(3)
 if not playTriggered then
     screenGui:Destroy()
+    destroyFXUiFolder()
     playEffects()
 end
-screenGui:Destroy()
