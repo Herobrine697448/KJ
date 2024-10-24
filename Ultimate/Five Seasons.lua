@@ -287,7 +287,7 @@ local function playEffects()
         -- FIST SPAWNING MECHANISM
         local fistsModelMirrored = ReplicatedStorage.Resources.FiveSeasonsFX.FistsModelMirrored:Clone()
         fistsModelMirrored.Parent = workspace
-        fistsModelMirrored:SetPrimaryPartCFrame(character.HumanoidRootPart.CFrame * CFrame.new(0, 700, 0))
+        fistsModelMirrored:SetPrimaryPartCFrame(character.HumanoidRootPart.CFrame * CFrame.new(0, 500, 0))
 
         local function destroyFists()
             wait(2.3)
