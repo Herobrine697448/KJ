@@ -99,10 +99,10 @@ local function playHitAnimation(target)
     end)
     
     local hit1 = ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-    hit1.Parent = character["Torso"]
+    hit1.Parent = character["Left Arm"]
     for _, child in ipairs(hit1:GetChildren()) do
         if child:IsA("ParticleEmitter") then
-            child:Emit(20)
+            child:Emit(30)
         end
     end
 
@@ -110,7 +110,7 @@ local function playHitAnimation(target)
     workspace.barrage:Destroy()
 
     local hit2 = ReplicatedStorage.Resources.KJEffects["HitParticles"].Hit:Clone()
-    hit2.Parent = character["Torso"]
+    hit2.Parent = character["Right Arm"]
     for _, child in ipairs(hit2:GetChildren()) do
         if child:IsA("ParticleEmitter") then
             child:Emit(20)
