@@ -194,6 +194,25 @@ local function applyDamageToNearestTarget()
     --if not sound.IsPlaying then
         --sound:Play()
     --end
+
+    local player = game.Players.LocalPlayer
+    local health = player.PlayerGui:WaitForChild("ScreenGui"):WaitForChild("MagicHealth"):WaitForChild("Health")
+    local bar = health:WaitForChild("Bar")
+
+    local maxBarWidth = 230
+
+    local function updateBarSize()
+        local currentWidth = bar.Size.X.Offset
+        local newWidth = currentWidth + 15
+
+        if newWidth > maxBarWidth then
+            newWidth = maxBarWidth
+        end
+
+        bar.Size = UDim2.new(0, newWidth, 0, 17)
+    end
+
+    updateBarSize()
 end
 
 applyDamageToNearestTarget()
