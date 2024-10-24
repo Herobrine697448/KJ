@@ -56,6 +56,27 @@ local function playHitSound()
     end)
 end
 
+local function Increase()
+    local player = game.Players.LocalPlayer
+    local health = player.PlayerGui:WaitForChild("ScreenGui"):WaitForChild("MagicHealth"):WaitForChild("Health")
+    local bar = health:WaitForChild("Bar")
+
+    local maxBarWidth = 230
+
+    local function updateBarSize()
+        local currentWidth = bar.Size.X.Offset
+        local newWidth = currentWidth + 26
+
+        if newWidth > maxBarWidth then
+            newWidth = maxBarWidth
+        end
+
+        bar.Size = UDim2.new(0, newWidth, 0, 17)
+    end
+
+    updateBarSize()
+end
+
 local function playHitAnimation(target)
     animationPlayed = true
 
@@ -175,6 +196,7 @@ if true then
     if target and not animationPlayed then
         playHitSound()
         playHitAnimation(target)
+        Increase()
     end
     wait(0.1)
 end
