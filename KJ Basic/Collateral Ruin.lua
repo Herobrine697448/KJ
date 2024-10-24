@@ -160,3 +160,41 @@ boom1.Parent = game.Players.LocalPlayer.Character["Torso"]
             child:Emit(3) -- Emit 20 particles
         end
 end
+
+
+local function applyDamageToNearestTarget()
+    local closestTarget = nil
+    local closestDistance = 10
+
+    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+        if otherPlayer ~= player and otherPlayer.Character and otherPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            local distance = (player.Character.HumanoidRootPart.Position - otherPlayer.Character.HumanoidRootPart.Position).Magnitude
+
+            if distance <= closestDistance then
+                closestDistance = distance
+                closestTarget = otherPlayer.Character
+            end
+        end
+    end
+
+    local dummy = game.Workspace.Live:FindFirstChild("Weakest Dummy")
+    if dummy and dummy:FindFirstChild("HumanoidRootPart") then
+        local distance = (player.Character.HumanoidRootPart.Position - dummy.HumanoidRootPart.Position).Magnitude
+        if distance <= closestDistance then
+            closestTarget = dummy
+        end
+    end
+
+    if closestTarget then
+        local humanoid = closestTarget:FindFirstChild("Humanoid")
+        if humanoid then
+            humanoid:TakeDamage(15)
+        end
+    end
+
+    --if not sound.IsPlaying then
+        --Sound:Play()
+    --end
+end
+
+applyDamageToNearestTarget()
