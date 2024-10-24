@@ -14,7 +14,6 @@ sound.Parent = player.Character
 sound:Play()
 wait(1)
 
-
 local boom1 = game.ReplicatedStorage.Resources.KJEffects["spinnerthing"].spinningpartysmoke:Clone()
 boom1.Parent = game.Players.LocalPlayer.Character["Torso"]
     for _, child in ipairs(boom1:GetChildren()) do
@@ -193,7 +192,7 @@ local function applyDamageToNearestTarget()
     end
 
     --if not sound.IsPlaying then
-        --Sound:Play()
+        --sound:Play()
     --end
 end
 
