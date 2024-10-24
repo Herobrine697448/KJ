@@ -45,7 +45,7 @@ end
 local function positionOnFloor(part)
     if torso then
         local torsoPosition = torso.Position
-        local rayOrigin = torsoPosition + Vector3.new(0, 10, 0)
+        local rayOrigin = torsoPosition + Vector3.new(0, 2, 0)
         local rayDirection = Vector3.new(0, -20, 0)
         local raycastResult = workspace:Raycast(rayOrigin, rayDirection)
 
@@ -263,6 +263,7 @@ local function playEffects()
 
         playSound()
         wait(1.9)
+        
         local function playSound()
             local sound = Instance.new("Sound")
             sound.SoundId = "rbxassetid://18461821277"
@@ -270,8 +271,10 @@ local function playEffects()
             sound.Volume = 2
             sound:Play()
         end
+        
         playSound()
         wait(1.4)
+
         local function playSound()
             local sound = Instance.new("Sound")
             sound.SoundId = "rbxassetid://18462018744"
@@ -279,8 +282,20 @@ local function playEffects()
             sound.Volume = 2
             sound:Play()
         end
+        
         playSound()
-        wait(2)
+        -- FIST SPAWNING MECHANISM
+        local fistsModelMirrored = ReplicatedStorage.Resources.FiveSeasonsFX.FistsModelMirrored:Clone()
+        fistsModelMirrored.Parent = workspace
+        fistsModelMirrored:SetPrimaryPartCFrame(character.HumanoidRootPart.CFrame * CFrame.new(0, 700, 0))
+
+        local function destroyFists()
+            wait(2.3)
+            fistsModelMirrored:Destroy()
+        end
+        
+        destroyFists()
+
         local function playSound()
             local sound = Instance.new("Sound")
             sound.SoundId = "rbxassetid://18462312002"
@@ -288,8 +303,10 @@ local function playEffects()
             sound.Volume = 2
             sound:Play()
         end
+        
         playSound()
         wait(1.6)
+
         local function playSound()
             local sound = Instance.new("Sound")
             sound.SoundId = "rbxassetid://18462330981"
@@ -297,26 +314,8 @@ local function playEffects()
             sound.Volume = 2
             sound:Play()
         end
+        
         playSound()
-
-        local ReplicatedStorage = game:GetService("ReplicatedStorage")
-        local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local resources = ReplicatedStorage:WaitForChild("Resources")
-        local fiveSeasonsFX = resources:WaitForChild("FiveSeasonsFX")
-        local fistsModelMirrored = fiveSeasonsFX:WaitForChild("FistsModelMirrored")
-
-        local fistsClone = fistsModelMirrored:Clone()
-        fistsClone.Parent = workspace
-
-        fistsClone:SetPrimaryPartCFrame(character.HumanoidRootPart.CFrame * CFrame.new(0, 700, 0))
-
-        local function destroyFists()
-            wait(2.3)
-            fistsClone:Destroy
-        end
-
-        destroyFists()
     end
 end
 
