@@ -49,7 +49,7 @@ local function playHitSound()
     local Sound5 = Instance.new("Sound")
     Sound5.Parent = character
     Sound5.SoundId = "rbxassetid://16945723339"
-    Sound5.Volume = 2
+    Sound5.Volume = 1
 
     Sound4.Ended:Connect(function()
             Sound5:Play()
