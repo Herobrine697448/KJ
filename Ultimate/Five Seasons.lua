@@ -236,14 +236,52 @@ local function playEffects()
         anim.AnimationId = "rbxassetid://0" 
         playAnim:Play() 
 
-        wait(2.7)
-        local FinalImpact = game.ReplicatedStorage.Resources.KJEffects.KJWallCombo["FinalImpact"].Attachment:Clone()
-        FinalImpact.Parent = player.Character["HumanoidRootPart"]
-        for _, child in ipairs(FinalImpact:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(5)
-            end
+        local function playSound()
+            local sound = Instance.new("Sound")
+            sound.SoundId = "rbxassetid://18461820786"
+            sound.Parent = character
+            sound.Volume = 2
+            sound:Play()
         end
+
+        playSound()
+        wait(1.9)
+        local function playSound()
+            local sound = Instance.new("Sound")
+            sound.SoundId = "rbxassetid://18461821277"
+            sound.Parent = character
+            sound.Volume = 2
+            sound:Play()
+        end
+        playSound()
+        wait(1.4)
+        local function playSound()
+            local sound = Instance.new("Sound")
+            sound.SoundId = "rbxassetid://18462018744"
+            sound.Parent = character
+            sound.Volume = 2
+            sound:Play()
+        end
+        playSound()
+        wait(2)
+        local function playSound()
+            local sound = Instance.new("Sound")
+            sound.SoundId = "rbxassetid://18462312002"
+            sound.Parent = character
+            sound.Volume = 2
+            sound:Play()
+        end
+        playSound()
+        wait(1.6)
+        local function playSound()
+            local sound = Instance.new("Sound")
+            sound.SoundId = "rbxassetid://18462330981"
+            sound.Parent = character
+            sound.Volume = 2
+            sound:Play()
+        end
+        playSound()
+        wait(0.6)
 
         local Fist = game.ReplicatedStorage.Resources.FiveSeasonsFX["FistsModelMirrored"].Fists:Clone()
         Fist.Parent = player.Character["HumanoidRootPart"]
@@ -264,6 +302,7 @@ end)
 
 wait(3)
 if not playTriggered then
+    screenGui:Destroy()
     playEffects()
 end
 screenGui:Destroy()
