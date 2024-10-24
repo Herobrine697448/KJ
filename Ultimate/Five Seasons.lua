@@ -299,15 +299,24 @@ local function playEffects()
         end
         playSound()
 
-        local Fist = game.ReplicatedStorage.Resources.FiveSeasonsFX["FistsModelMirrored"].Fists:Clone()
-        Fist.Parent = player.Character["HumanoidRootPart"]
-        for _, child in ipairs(Fist:GetChildren()) do
-            if child:IsA("ParticleEmitter") then
-                child:Emit(5)
-            end
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+        local player = game.Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local resources = ReplicatedStorage:WaitForChild("Resources")
+        local fiveSeasonsFX = resources:WaitForChild("FiveSeasonsFX")
+        local fistsModelMirrored = fiveSeasonsFX:WaitForChild("FistsModelMirrored")
+
+        local fistsClone = fistsModelMirrored:Clone()
+        fistsClone.Parent = workspace
+
+        fistsClone:SetPrimaryPartCFrame(character.HumanoidRootPart.CFrame * CFrame.new(0, 700, 0))
+
+        local function destroyFists()
+            wait(2.3)
+            fistsClone:Destroy
         end
-        wait(2)
-        Fist:Destroy()
+
+        destroyFists()
     end
 end
 
