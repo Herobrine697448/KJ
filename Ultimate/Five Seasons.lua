@@ -45,7 +45,7 @@ end
 local function positionOnFloor(part)
     if torso then
         local torsoPosition = torso.Position
-        local rayOrigin = torsoPosition + Vector3.new(0, 2, 0)
+        local rayOrigin = torsoPosition + Vector3.new(0, 1, 0)
         local rayDirection = Vector3.new(0, -20, 0)
         local raycastResult = workspace:Raycast(rayOrigin, rayDirection)
 
@@ -287,7 +287,7 @@ local function playEffects()
         -- FIST SPAWNING MECHANISM
         local fistsModelMirrored = ReplicatedStorage.Resources.FiveSeasonsFX.FistsModelMirrored:Clone()
         fistsModelMirrored.Parent = workspace
-        fistsModelMirrored:SetPrimaryPartCFrame(character.HumanoidRootPart.CFrame * CFrame.new(0, 500, 0))
+        fistsModelMirrored:SetPrimaryPartCFrame(character.HumanoidRootPart.CFrame * CFrame.new(0, 400, 0))
 
         local function destroyFists()
             wait(2.3)
