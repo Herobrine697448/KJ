@@ -18,6 +18,24 @@ local hitSound = Instance.new("Sound")
 hitSound.SoundId = "rbxassetid://16944654440"
 hitSound.Volume = 2
 
+local player = game.Players.LocalPlayer
+local health = player.PlayerGui:WaitForChild("ScreenGui"):WaitForChild("MagicHealth"):WaitForChild("Health")
+local bar = health:WaitForChild("Bar")
+
+local maxBarWidth = 230
+local Increase = math.random(10, 14)
+
+local function updateBarSize()
+    local currentWidth = bar.Size.X.Offset
+    local newWidth = currentWidth + Increase
+
+    if newWidth > maxBarWidth then
+        newWidth = maxBarWidth
+    end
+
+    bar.Size = UDim2.new(0, newWidth, 0, 17)
+end
+
 local function applyDamageToNearestTarget()
     local closestTarget = nil
     local closestDistance = 5
@@ -55,6 +73,7 @@ local function applyDamageToNearestTarget()
 
                 hitSound.Parent = closestTarget.HumanoidRootPart
                 hitSound:Play()
+                updateBarSize()
                 sound:Stop()
                 return
             end
