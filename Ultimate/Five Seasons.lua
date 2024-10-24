@@ -213,7 +213,7 @@ frame.Text = ""
 frame.Parent = screenGui
 
 local fiveSeasonsButton = Instance.new("TextLabel")
-fiveSeasonsButton.Size = UDim2.new(0, 5, 0, 5)
+fiveSeasonsButton.Size = UDim2.new(0, 2, 0, 2)
 fiveSeasonsButton.Position = UDim2.new(0.5, -5, 0.5, -5)
 fiveSeasonsButton.BackgroundTransparency = 0
 fiveSeasonsButton.Text = ""
